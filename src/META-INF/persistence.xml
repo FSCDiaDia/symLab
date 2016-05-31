@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="symlab-unit" transaction-type="JTA">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <jta-data-source>PostgreSQL Database</jta-data-source>
+        <class>it.uniroma3.stud.symlab.model.TypeExam</class>
+        <class>it.uniroma3.stud.symlab.model.Exam</class>
+        <class>it.uniroma3.stud.symlab.model.Indicator</class>
+        <class>it.uniroma3.stud.symlab.model.Doctor</class>
+        <class>it.uniroma3.stud.symlab.model.Patient</class>
+        <properties>
+            <property name="openjpa.jdbc.SynchronizeMappings"
+                      value="buildSchema(ForeignKeys=true)"/>
+        </properties>
+    </persistence-unit>
+</persistence>

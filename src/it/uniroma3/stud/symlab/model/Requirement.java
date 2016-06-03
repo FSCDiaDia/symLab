@@ -4,8 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class Indicator {
-
+public class Requirement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -13,15 +12,14 @@ public class Indicator {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String value;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private TypeExam typeExam;
 
-    public Indicator() {
+    public Requirement() {
     }
 
     public long getId() {
-
         return id;
     }
 
@@ -37,12 +35,12 @@ public class Indicator {
         this.name = name;
     }
 
-    public TypeExam getTypeExam() {
-        return typeExam;
+
+    public String getValue() {
+        return value;
     }
 
-    public void setTypeExam(TypeExam typeExam) {
-        this.typeExam = typeExam;
+    public void setValue(String value) {
+        this.value = value;
     }
-
 }

@@ -2,6 +2,7 @@ package it.uniroma3.stud.symlab.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Map;
 
 
 @Entity
@@ -18,20 +19,31 @@ public class Exam {
     @Column(nullable = false)
     private Date achievementData;
 
-   /* @Column(nullable = false)
-    private List<?> results; */
-
-    @OneToOne
+    @Column
+    @ManyToOne
     private TypeExam typeExam;
 
-    @OneToOne
+    @Column
+    @ManyToOne
     private Patient patient;
 
-    @OneToOne
+    @Column
+    @ManyToOne
     private Doctor doctor;
+
+    @Column
+    @OneToMany
+    private Map<Long, Result> results;
 
 
     public Exam() {
+    }
+
+    public Exam(Date achievementData, Doctor doctor, Patient patient, TypeExam typeExam) {
+        this.achievementData = achievementData;
+        this.doctor = doctor;
+        this.patient = patient;
+        this.typeExam = typeExam;
     }
 
     public Date getAchievementData() {
@@ -58,14 +70,6 @@ public class Exam {
         this.id = id;
     }
 
-   /* public List<?> getResults() {
-        return results;
-    }
-
-    public void setResults(List<?> results) {
-        this.results = results;
-    } */
-
     public Doctor getDoctor() {
         return doctor;
     }
@@ -89,4 +93,14 @@ public class Exam {
     public void setTypeExam(TypeExam typeExam) {
         this.typeExam = typeExam;
     }
+
+
+    public Map<Long, Result> getResults() {
+        return results;
+    }
+
+    public void setResults(Map<Long, Result> results) {
+        this.results = results;
+    }
+
 }

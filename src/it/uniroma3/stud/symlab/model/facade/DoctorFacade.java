@@ -5,6 +5,8 @@ import it.uniroma3.stud.symlab.model.Doctor;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.List;
 
 /**
  * Created by serena on 03/06/16.
@@ -24,6 +26,12 @@ public class DoctorFacade {
 
     public Doctor getDoctor(Long id) {
         return em.find(Doctor.class, id);
+    }
+
+    public List<Doctor> getAllDoctors() {
+        CriteriaQuery<Doctor> cq = em.getCriteriaBuilder().createQuery(Doctor.class);
+        cq.select(cq.from(Doctor.class));
+        return em.createQuery(cq).getResultList();
     }
 
     public void updateDoctor(Doctor doctor) {

@@ -4,18 +4,28 @@ import it.uniroma3.stud.symlab.model.Doctor;
 import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Patient;
 import it.uniroma3.stud.symlab.model.TypeExam;
+import it.uniroma3.stud.symlab.model.facade.DoctorFacade;
 import it.uniroma3.stud.symlab.model.facade.ExamFacade;
+import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.util.Date;
+import java.util.List;
 
 @ManagedBean
 public class ExamController {
 
     @EJB
     private ExamFacade examFacade;
+
+    @EJB
+    private DoctorFacade doctorFacade;
+
+    @EJB
+    private TypeExamFacade typeExamFacade;
+
     @ManagedProperty(value = "#{param.id}")
     private Long id;
     private Date achievementDate;
@@ -76,5 +86,13 @@ public class ExamController {
 
     public void setTypeExam(TypeExam typeExam) {
         this.typeExam = typeExam;
+    }
+
+    public List<Doctor> getDoctors() {
+        return doctorFacade.getAllDoctors();
+    }
+
+    public List<TypeExam> getTypeExams() {
+        return typeExamFacade.getAllTypeExams();
     }
 }

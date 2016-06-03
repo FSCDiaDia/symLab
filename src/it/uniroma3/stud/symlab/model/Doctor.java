@@ -71,4 +71,8 @@ public class Doctor {
     public void setExamList(List<Exam> examList) {
         this.examList = examList;
     }
+
+    public String getFullName() {
+        return getLastname() + " " + getName();
+    }
 }

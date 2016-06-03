@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,66 +17,68 @@
     <f:view>
     <h:form>
     <div class="form-group">
-        <h:outputLabel for="name">Type Exam's Name</h:outputLabel>
-        <h:inputText value="#{ExamController.typeExam.name}"
-                     required="true"
-                     requiredMessage="Name of TypeExam is mandatory"
-                     styleClass="form-control"
-                     id="name"/>
-        <h:message styleClass="help-block" for="name"/></div>
+        <h:outputLabel for="type-exam">Type Exam</h:outputLabel>
+        <h:selectOneMenu value="#{examController.typeExam}"
+                         required="true"
+                         requiredMessage="TypeExam is mandatory"
+                         styleClass="form-control"
+                         id="type-exam">
+            <c:forEach var="item" items="#{examController.typeExams}">
+                <f:selectItem itemValue="#{item}" itemLabel="#{item.name}"/>
+            </c:forEach>
+        </h:selectOneMenu>
+        <h:message styleClass="help-block" for="type-exam"/>
+    </div>
 
     <div class="form-group">
         <h:outputLabel for="date">Date</h:outputLabel>
-        <h:inputText value="#{ExamController.achievementDate}"
+        <h:inputText value="#{examController.achievementDate}"
                      required="true"
                      requiredMessage="achievementDate is mandatory"
                      converterMessage="achievementDate must be a date"
                      styleClass="form-control"
                      id="date"/>
-        <h:message styleClass="help-block" for="date"/></div>
+        <h:message styleClass="help-block" for="date"/>
+    </div>
+
     <div class="form-group">
         <h:outputLabel for="patientName">Patient Name</h:outputLabel>
-        <h:inputText value="#{ExamController.patient.name}"
+        <h:inputText value="#{examController.patient.name}"
                      required="true"
                      requiredMessage="Patient name is mandatory"
                      converterMessage="Patient name must be a string"
                      styleClass="form-control"
                      id="patientName"/>
-        <h:message styleClass="help-block" for="patientName"/></div>
+        <h:message styleClass="help-block" for="patientName"/>
+    </div>
+
     <div class="form-group">
         <h:outputLabel for="patientLastName">Patient's Last Name</h:outputLabel>
-        <h:inputText value="#{ExamController.patient.lastname}"
+        <h:inputText value="#{examController.patient.lastname}"
                      required="true"
                      requiredMessage="Patient Last name is mandatory"
                      converterMessage="Patient Last name must be a string"
                      styleClass="form-control"
                      id="patientLastName"/>
-        <h:message styleClass="help-block" for="patientLastName"/></div>
-    <div class="form-group">
-        <h:outputLabel for="doctorName">Doctor's name</h:outputLabel>
-        <h:inputText value="#{ExamController.doctor.name}"
-                     required="true"
-
-                     requiredMessage="Doctor name is mandatory"
-                     converterMessage="Doctor name must be a string"
-                     styleClass="form-control"
-                     id="doctorName"/>
-        <h:message styleClass="help-block" for="doctorName"/>
+        <h:message styleClass="help-block" for="patientLastName"/>
     </div>
 
     <div class="form-group">
-        <h:outputLabel for="doctorLastName">Doctor's Last name</h:outputLabel>
-        <h:inputText value="#{ExamController.doctor.lastname}"
-                     required="true"
-                     requiredMessage="Doctor Last name is mandatory"
-                     converterMessage="Doctor Last name must be a string"
-                     styleClass="form-control"
-                     id="doctorLastName"/>
-        <h:message styleClass="help-block" for="doctorLastName"/>
+        <h:outputLabel for="doctor">Doctor</h:outputLabel>
+        <h:selectOneMenu value="#{examController.doctor}"
+                         required="true"
+                         requiredMessage="Doctor is mandatory"
+                         styleClass="form-control"
+                         id="doctor">
+            <c:forEach var="item" items="#{examController.doctors}">
+                <f:selectItem itemValue="#{item}" itemLabel="#{item.fullName}"/>
+            </c:forEach>
+        </h:selectOneMenu>
+        <h:message styleClass="help-block" for="doctor"/>
     </div>
 
     <div>
-        <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{ExamController.createExam}"/>
+        <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{examController.createExam}"/>
     </div>
 
     </h:form>

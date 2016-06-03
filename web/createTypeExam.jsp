@@ -44,7 +44,7 @@
             </div>
             <div>
                 <h:commandButton value="Submit" action="#{typeExamController.createTypeExam}"
-                                 styleClass="btn btn-default"/>
+                                 styleClass="btn btn-primary"/>
             </div>
 
         </h:form>

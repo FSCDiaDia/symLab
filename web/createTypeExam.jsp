@@ -5,35 +5,50 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-    <title>New TypeExam</title>
+    <title>Create Type Exam</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 </head>
 <body>
-<f:view>
-    <h:form>
-        <div>Name: <h:inputText value="#{typeExamController.name}"
-                                required="true"
-                                requiredMessage="Name is mandatory"
-                                id="name"/> <h:message for="name"/>
-        </div>
+<div class="container">
+    <h1>Create Type Exam</h1>
+    <f:view>
+        <h:form>
+            <div class="form-group">
+                <h:outputLabel for="name">Name</h:outputLabel>
+                <h:inputText value="#{typeExamController.name}"
+                             required="true"
+                             requiredMessage="Name is mandatory"
+                             styleClass="form-control"
+                             id="name"/> <h:message for="name"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="price">Price</h:outputLabel>
+                <h:inputText value="#{typeExamController.price}"
+                             required="true"
+                             requiredMessage="Price is mandatory"
+                             converterMessage="Price must be a number"
+                             styleClass="form-control"
+                             id="price"/> <h:message for="price"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="description">Description</h:outputLabel>
+                <h:inputTextarea value="#{typeExamController.description}"
+                                 required="false"
+                                 cols="20"
+                                 rows="5"
+                                 styleClass="form-control"
+                                 id="description"/>
 
-        </div>
-        <div>Price: <h:inputText value="#{typeExamController.price}"
-                                 required="true"
-                                 requiredMessage="Price is mandatory"
-                                 converterMessage="Price must be a number"
-                                 id="price"/> <h:message for="price"/>
-        </div>
-        <div>Description: <h:inputTextarea value="#{typeExamController.description}"
-                                           required="false"
-                                           cols="20"
-                                           rows="5"/>
+            </div>
+            <div>
+                <h:commandButton value="Submit" action="#{typeExamController.createTypeExam}"
+                                 styleClass="btn btn-default"/>
+            </div>
 
-        </div>
-        <div>
-            <h:commandButton value="Submit" action="#{typeExamController.createTypeExam}"/>
-        </div>
-
-    </h:form>
-</f:view>
+        </h:form>
+    </f:view>
+</div>
 </body>
 </html>

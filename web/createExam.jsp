@@ -42,25 +42,17 @@
     </div>
 
     <div class="form-group">
-        <h:outputLabel for="patientName">Patient Name</h:outputLabel>
-        <h:inputText value="#{examController.patient.name}"
-                     required="true"
-                     requiredMessage="Patient name is mandatory"
-                     converterMessage="Patient name must be a string"
-                     styleClass="form-control"
-                     id="patientName"/>
-        <h:message styleClass="help-block" for="patientName"/>
-    </div>
-
-    <div class="form-group">
-        <h:outputLabel for="patientLastName">Patient's Last Name</h:outputLabel>
-        <h:inputText value="#{examController.patient.lastname}"
-                     required="true"
-                     requiredMessage="Patient Last name is mandatory"
-                     converterMessage="Patient Last name must be a string"
-                     styleClass="form-control"
-                     id="patientLastName"/>
-        <h:message styleClass="help-block" for="patientLastName"/>
+        <h:outputLabel for="patient">Patient</h:outputLabel>
+        <h:selectOneMenu value="#{examController.patient}"
+                         required="true"
+                         requiredMessage="Patient is mandatory"
+                         styleClass="form-control"
+                         id="patient">
+            <c:forEach var="item" items="#{examController.patients}">
+                <f:selectItem itemValue="#{item}" itemLabel="#{item.fullName}"/>
+            </c:forEach>
+        </h:selectOneMenu>
+        <h:message styleClass="help-block" for="patient"/>
     </div>
 
     <div class="form-group">

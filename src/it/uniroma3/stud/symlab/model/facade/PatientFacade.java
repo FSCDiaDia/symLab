@@ -5,6 +5,8 @@ import it.uniroma3.stud.symlab.model.Patient;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.List;
 
 @Stateless
 public class PatientFacade {
@@ -32,5 +34,11 @@ public class PatientFacade {
     public void deletePatient(Long id) {
         Patient patient = entityManager.find(Patient.class, id);
         deletePatient(patient);
+    }
+
+    public List<Patient> getAllPatient() {
+        CriteriaQuery<Patient> cq = entityManager.getCriteriaBuilder().createQuery(Patient.class);
+        cq.select(cq.from(Patient.class));
+        return entityManager.createQuery(cq).getResultList();
     }
 }

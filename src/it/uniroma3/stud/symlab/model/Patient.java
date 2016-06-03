@@ -60,4 +60,8 @@ public class Patient {
     public void setExam(Map<Long, Exam> exam) {
         this.exam = exam;
     }
+
+    public String getFullName() {
+        return getLastname() + " " + getName();
+    }
 }

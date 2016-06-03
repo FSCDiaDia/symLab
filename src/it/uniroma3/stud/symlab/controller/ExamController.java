@@ -6,6 +6,7 @@ import it.uniroma3.stud.symlab.model.Patient;
 import it.uniroma3.stud.symlab.model.TypeExam;
 import it.uniroma3.stud.symlab.model.facade.DoctorFacade;
 import it.uniroma3.stud.symlab.model.facade.ExamFacade;
+import it.uniroma3.stud.symlab.model.facade.PatientFacade;
 import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 
 import javax.ejb.EJB;
@@ -25,6 +26,9 @@ public class ExamController {
 
     @EJB
     private TypeExamFacade typeExamFacade;
+
+    @EJB
+    private PatientFacade patientFacade;
 
     @ManagedProperty(value = "#{param.id}")
     private Long id;
@@ -94,5 +98,9 @@ public class ExamController {
 
     public List<TypeExam> getTypeExams() {
         return typeExamFacade.getAllTypeExams();
+    }
+
+    public List<Patient> getPatients() {
+        return patientFacade.getAllPatient();
     }
 }

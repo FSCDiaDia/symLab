@@ -18,8 +18,12 @@ public class ExamController {
     private ExamFacade examFacade;
     @ManagedProperty(value = "#{param.id}")
     private Long id;
-    private Date creationDate;
     private Date achievementDate;
+    private String nameExam;
+    private String lastNameDoctor;
+    private String nameDoctor;
+    private String lastNamePatient;
+    private String namePatient;
     private Patient patient;
     private TypeExam typeExam;
     private Exam exam;
@@ -40,14 +44,6 @@ public class ExamController {
 
     public void setAchievementDate(Date achievementDate) {
         this.achievementDate = achievementDate;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     public Doctor getDoctor() {

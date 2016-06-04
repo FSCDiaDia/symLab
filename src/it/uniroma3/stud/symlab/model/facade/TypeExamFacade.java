@@ -15,7 +15,7 @@ public class TypeExamFacade {
     EntityManager em;
 
     public TypeExam createTypeExam(String name, Float price, String description) {
-        TypeExam typeExam = new TypeExam(name, description, price);
+        TypeExam typeExam = new TypeExam(name, price, description);
         em.persist(typeExam);
         return typeExam;
     }

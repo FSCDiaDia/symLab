@@ -33,21 +33,19 @@ public class ExamController {
     @ManagedProperty(value = "#{param.id}")
     private Long id;
     private Date achievementDate;
-    private String nameExam;
-    private String lastNameDoctor;
-    private String nameDoctor;
-    private String lastNamePatient;
-    private String namePatient;
     private Patient patient;
     private TypeExam typeExam;
+    private Long typeExamId;
     private Exam exam;
     private Doctor doctor;
+    private Long patientId;
+    private Long doctorId;
 
     public ExamController() {
     }
 
     public String createExam() {
-        this.exam = this.examFacade.createExam(achievementDate, patient, doctor, typeExam);
+        this.exam = this.examFacade.createExam(achievementDate, patientFacade.getPatient(patientId), doctorFacade.getDoctor(doctorId), typeExamFacade.getTypeExam(typeExamId));
         return "exam";
 
     }

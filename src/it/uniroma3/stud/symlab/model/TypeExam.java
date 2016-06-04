@@ -9,7 +9,7 @@ import java.util.Map;
 public class TypeExam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long code;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -32,7 +32,7 @@ public class TypeExam {
     public TypeExam() {
     }
 
-    public TypeExam(String description, String name, float price) {
+    public TypeExam(String name, float price, String description) {
         this.description = description;
         this.name = name;
         this.price = price;
@@ -62,12 +62,12 @@ public class TypeExam {
         this.description = description;
     }
 
-    public long getCode() {
-        return this.code;
+    public long getId() {
+        return this.id;
     }
 
-    public void setCode(long id) {
-        this.code = code;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public List<Requirement> getRequirements() {

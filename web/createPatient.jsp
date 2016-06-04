@@ -6,25 +6,33 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
     <title>New Patient</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 </head>
 <body>
+<div class="container">
+    <h1>Create Patient</h1>
 <f:view>
     <h:form>
-        <div>Name: <h:inputText value="#{patientController.name}"
-                                required="true"
-                                requiredMessage="Name is mandatory"
-                                id="name"/> <h:message for="name"/>
+    <div class="form-group">
+        <h:outputLabel for="name">Name</h:outputLabel>
+        <h:inputText value="#{patientController.name}"
+                     required="true"
+                     requiredMessage="Name is mandatory"
+                     styleClass="form-control"
+                     id="name"/> <h:message for="name"/>
         </div>
-
-        </div>
-        <div>Lastname: <h:inputText value="#{patientController.lastname}"
-                                    required="true"
-                                    requiredMessage="lastname is mandatory"
-                                    id="lastname"/> <h:message for="lastname"/>
+    <div class="form-group">
+        <h:outputLabel for="lastname">Lastname</h:outputLabel>
+        <h:inputText value="#{patientController.lastname}"
+                     required="true"
+                     requiredMessage="lastname is mandatory"
+                     styleClass="form-control"
+                     id="lastname"/> <h:message for="lastname"/>
         </div>
 
         <div>
-            <h:commandButton value="Submit" action="#{patientController.createPatient}"/>
+            <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{patientController.createPatient}"/>
         </div>
 
     </h:form>

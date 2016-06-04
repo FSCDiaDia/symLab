@@ -4,31 +4,37 @@ package it.uniroma3.stud.symlab.controller;
 import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.Patient;
+import it.uniroma3.stud.symlab.model.Result;
 import it.uniroma3.stud.symlab.model.facade.ResultFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import java.util.List;
 
 @ManagedBean
 public class ResultController {
 
     private Patient patient;
+
     @EJB
     private ResultFacade resultFacade;
-    private String namePatient;
-    private String lastnamePatient;
+    private Long patientId;
     private Float value;
     private String nameIndicator;
     private Indicator indicator;
     private Exam exam;
+    private Long examId;
+
+    private Result result;
 
 
-    public String getLastnamePatient() {
-        return lastnamePatient;
+    public ResultController() {
     }
 
-    public void setLastnamePatient(String lastnamePatient) {
-        this.lastnamePatient = lastnamePatient;
+    //working in progress
+    public String insertResults() {
+        this.result = this.resultFacade.insertResults();
+        return "results";
     }
 
     public String getNameIndicator() {
@@ -37,14 +43,6 @@ public class ResultController {
 
     public void setNameIndicator(String nameIndicator) {
         this.nameIndicator = nameIndicator;
-    }
-
-    public String getNamePatient() {
-        return namePatient;
-    }
-
-    public void setNamePatient(String namePatient) {
-        this.namePatient = namePatient;
     }
 
     public Patient getPatient() {
@@ -78,4 +76,34 @@ public class ResultController {
     public void setExam(Exam exam) {
         this.exam = exam;
     }
+
+    public List<Exam> getExams(Long patientId) {
+        return this.resultFacade.getAllExams(patientId);
+    }
+
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public Long getExamId() {
+        return examId;
+    }
+
+    public void setExamId(Long examId) {
+        this.examId = examId;
+    }
 }
+

@@ -18,13 +18,13 @@
     <h:form>
     <div class="form-group">
         <h:outputLabel for="type-exam">Type Exam</h:outputLabel>
-        <h:selectOneMenu value="#{examController.typeExam}"
+        <h:selectOneMenu value="#{examController.typeExamId}"
                          required="true"
                          requiredMessage="TypeExam is mandatory"
                          styleClass="form-control"
                          id="type-exam">
             <c:forEach var="item" items="#{examController.typeExams}">
-                <f:selectItem itemValue="#{item}" itemLabel="#{item.name}"/>
+                <f:selectItem itemValue="#{item.id}" itemLabel="#{item.name}"/>
             </c:forEach>
         </h:selectOneMenu>
         <h:message styleClass="help-block" for="type-exam"/>
@@ -37,19 +37,19 @@
                      requiredMessage="achievementDate is mandatory"
                      converterMessage="achievementDate must be a date"
                      styleClass="form-control"
-                     id="date"/>
+                     id="date"> </h:inputText>
         <h:message styleClass="help-block" for="date"/>
     </div>
 
     <div class="form-group">
         <h:outputLabel for="patient">Patient</h:outputLabel>
-        <h:selectOneMenu value="#{examController.patient}"
+        <h:selectOneMenu value="#{examController.patientId}"
                          required="true"
                          requiredMessage="Patient is mandatory"
                          styleClass="form-control"
                          id="patient">
             <c:forEach var="item" items="#{examController.patients}">
-                <f:selectItem itemValue="#{item}" itemLabel="#{item.fullName}"/>
+                <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
             </c:forEach>
         </h:selectOneMenu>
         <h:message styleClass="help-block" for="patient"/>
@@ -57,13 +57,13 @@
 
     <div class="form-group">
         <h:outputLabel for="doctor">Doctor</h:outputLabel>
-        <h:selectOneMenu value="#{examController.doctor}"
+        <h:selectOneMenu value="#{examController.doctorId}"
                          required="true"
                          requiredMessage="Doctor is mandatory"
                          styleClass="form-control"
                          id="doctor">
             <c:forEach var="item" items="#{examController.doctors}">
-                <f:selectItem itemValue="#{item}" itemLabel="#{item.fullName}"/>
+                <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
             </c:forEach>
         </h:selectOneMenu>
         <h:message styleClass="help-block" for="doctor"/>

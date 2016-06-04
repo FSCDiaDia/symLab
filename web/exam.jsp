@@ -6,11 +6,13 @@
 </head>
 <body>
 <f:view>
-    <h1>${ExamController.Exam.name}</h1>
+    <h1>${examController.exam.name}</h1>
     <h2>Details</h2>
-    <div>Id: ${ExamController.Exam.code}</div>
-    <div>Price: ${ExamController.Exam.price}</div>
-    <div>Description: ${ExamController.Exam.description}</div>
+    <div>Id: ${examController.exam.id}</div>
+    <div>Patient: ${examController.exam.patient.fullname}</div>
+    <div>Doctor: ${examController.exam.doctor.fullname}</div>
+    <div>TypeExam: ${examController.exam.typeExam.name}</div>
+    <div>Price: ${examController.exam.typeExam.price}</div>
 </f:view>
 </body>
 </html>

@@ -26,7 +26,7 @@ public class Doctor {
 
     }
 
-    public Doctor(String lastname, String name, String specialization) {
+    public Doctor(String name, String lastname, String specialization) {
         this.lastname = lastname;
         this.name = name;
         this.specialization = specialization;

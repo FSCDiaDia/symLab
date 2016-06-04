@@ -3,13 +3,23 @@
 <html>
 <head>
     <title>Patient</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 </head>
 <body>
+<div class="container">
 <f:view>
     <h1>Patient's details</h1>
-    <div>Id: ${patientController.patient.id}</div>
-    <div>Name: ${patientController.patient.name}</div>
-    <div>LastName: ${patientController.patient.lastname}</div>
+    <dl class="dl-horizontal">
+        <dt>Id:</dt>
+        <dd> ${patientController.patient.id}</dd>
+        <dt>Name:</dt>
+        <dd>${patientController.patient.name}</dd>
+        <dt>LastName:</dt>
+        <dd>${patientController.patient.lastname}</dd>
+    </dl>
+</div>
 </f:view>
 </body>
 </html>

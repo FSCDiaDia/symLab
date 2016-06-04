@@ -24,7 +24,7 @@ public class Patient {
 
     }
 
-    public Patient(String lastname, String name) {
+    public Patient(String name, String lastname) {
         this.lastname = lastname;
         this.name = name;
     }

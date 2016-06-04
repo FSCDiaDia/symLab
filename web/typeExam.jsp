@@ -3,14 +3,23 @@
 <html>
 <head>
     <title>TypeExam</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 </head>
 <body>
-<f:view>
+<div class="container">
+    <f:view>
     <h1>${typeExamController.typeExam.name}</h1>
     <h2>Details</h2>
-    <div>Id: ${typeExamController.typeExam.id}</div>
-    <div>Price: ${typeExamController.typeExam.price}</div>
-    <div>Description: ${typeExamController.typeExam.description}</div>
-</f:view>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>${typeExamController.typeExam.id}</dd>
+        <dt>Price</dt>
+        <dd>${typeExamController.typeExam.price}</dd>
+        <dt>Description</dt>
+        <dd>${typeExamController.typeExam.description}</dd>
+    </dl>
+    </f:view>
 </body>
 </html>

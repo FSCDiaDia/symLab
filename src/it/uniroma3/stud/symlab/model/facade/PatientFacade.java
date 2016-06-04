@@ -1,5 +1,6 @@
 package it.uniroma3.stud.symlab.model.facade;
 
+import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Patient;
 
 import javax.ejb.Stateless;
@@ -40,5 +41,10 @@ public class PatientFacade {
         CriteriaQuery<Patient> cq = entityManager.getCriteriaBuilder().createQuery(Patient.class);
         cq.select(cq.from(Patient.class));
         return entityManager.createQuery(cq).getResultList();
+    }
+
+    //implementare
+    public List<Exam> getAllExams(Long patientId) {
+        return null;
     }
 }

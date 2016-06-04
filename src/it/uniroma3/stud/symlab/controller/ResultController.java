@@ -5,6 +5,7 @@ import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.Patient;
 import it.uniroma3.stud.symlab.model.Result;
+import it.uniroma3.stud.symlab.model.facade.PatientFacade;
 import it.uniroma3.stud.symlab.model.facade.ResultFacade;
 
 import javax.ejb.EJB;
@@ -18,6 +19,9 @@ public class ResultController {
 
     @EJB
     private ResultFacade resultFacade;
+
+    @EJB
+    private PatientFacade patientFacade;
     private Long patientId;
     private Float value;
     private String nameIndicator;
@@ -77,8 +81,8 @@ public class ResultController {
         this.exam = exam;
     }
 
-    public List<Exam> getExams(Long patientId) {
-        return this.resultFacade.getAllExams(patientId);
+    public List<Exam> getExams() {
+        return this.patientFacade.getAllExams(patientId);
     }
 
 

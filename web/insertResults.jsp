@@ -37,7 +37,7 @@
                          requiredMessage="Exam is mandatory"
                          styleClass="form-control"
                          id="exam">
-            <c:forEach var="item" items="#{resultController.getExams(resultController.patientId)}">
+            <c:forEach var="item" items="#{resultController.exams}">
                 <f:selectItem itemValue="#{item.id}" itemLabel="#{item.name}"/>
             </c:forEach>
         </h:selectOneMenu>

@@ -1,7 +1,7 @@
 package it.uniroma3.stud.symlab.model;
 
 import javax.persistence.*;
-import java.util.Map;
+import java.util.List;
 
 
 @Entity
@@ -18,7 +18,7 @@ public class Patient {
 
     @Column
     @OneToMany
-    private Map<Long, Exam> exam;
+    private List<Exam> exams;
 
     public Patient() {
 
@@ -53,12 +53,12 @@ public class Patient {
         this.name = name;
     }
 
-    public Map<Long, Exam> getExam() {
-        return exam;
+    public List<Exam> getExams() {
+        return exams;
     }
 
-    public void setExam(Map<Long, Exam> exam) {
-        this.exam = exam;
+    public void setExams(List<Exam> exams) {
+        this.exams = exams;
     }
 
     public String getFullName() {

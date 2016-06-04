@@ -34,7 +34,7 @@ public class ResultController {
     //working in progress
     public String insertResults() {
         this.result = this.resultFacade.insertResults();
-        return "results";
+        return "result";
     }
 
     public String getNameIndicator() {

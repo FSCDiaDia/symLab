@@ -101,4 +101,28 @@ public class ExamController {
     public List<Patient> getPatients() {
         return patientFacade.getAllPatient();
     }
+
+    public Long getTypeExamId() {
+        return typeExamId;
+    }
+
+    public void setTypeExamId(Long typeExamId) {
+        this.typeExamId = typeExamId;
+    }
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
+
+    public Long getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(Long doctorId) {
+        this.doctorId = doctorId;
+    }
 }

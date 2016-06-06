@@ -125,4 +125,12 @@ public class ExamController {
     public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
     }
+
+    public Exam getExam() {
+        return exam;
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
+    }
 }

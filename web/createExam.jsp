@@ -32,12 +32,24 @@
 
     <div class="form-group">
         <h:outputLabel for="date">Date</h:outputLabel>
-        <h:inputText value="#{examController.achievementDate}"
-                     required="true"
-                     requiredMessage="achievementDate is mandatory"
-                     converterMessage="achievementDate must be a date"
-                     styleClass="form-control"
-                     id="date"> </h:inputText>
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date'>
+                        <h:inputText value="#{examController.achievementDate}"
+                                     required="true"
+                                     requiredMessage="achievementDate is mandatory"
+                                     converterMessage="achievementDate must be a date"
+                                     styleClass="form-control"
+                                     id="date">
+                            <f:convertDateTime pattern="yyyy-MM-dd" type="date"/>
+                        </h:inputText>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+            </div>
         <h:message styleClass="help-block" for="date"/>
     </div>
 

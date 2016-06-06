@@ -44,6 +44,7 @@ public class Exam {
         this.doctor = doctor;
         this.patient = patient;
         this.typeExam = typeExam;
+        this.creationData = new Date();
     }
 
     public Date getAchievementData() {
@@ -102,5 +103,6 @@ public class Exam {
     public void setResults(Map<Long, Result> results) {
         this.results = results;
     }
+
 
 }

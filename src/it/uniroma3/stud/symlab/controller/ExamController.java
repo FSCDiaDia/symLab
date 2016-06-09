@@ -133,4 +133,9 @@ public class ExamController {
     public void setExam(Exam exam) {
         this.exam = exam;
     }
+
+    public List<Exam> getListExamsSample() {
+        Patient patient = this.patientFacade.getAllPatient().get(0);
+        return examFacade.getListExamsByPatient(patient);
+    }
 }

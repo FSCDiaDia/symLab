@@ -9,7 +9,8 @@
 <body>
 <div class="container">
     <h1>Benvenuti su symLab</h1>
-    <a href="admin.html">Login amministratore</a>
+    <a href="admin.jsp">Login amministratore</a>
+
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Exam</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width" charset=UTF-8">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 </head>

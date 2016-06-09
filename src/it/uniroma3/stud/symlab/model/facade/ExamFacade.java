@@ -9,7 +9,11 @@ import it.uniroma3.stud.symlab.model.TypeExam;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.Date;
+import java.util.List;
 
 @Stateless
 public class ExamFacade {
@@ -37,5 +41,13 @@ public class ExamFacade {
     public void deleteExam(Long id) {
         Exam exam = entityManager.find(Exam.class, id);
         deleteExam(exam);
+    }
+
+    public List<Exam> getListExamsByPatient(Patient patient) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Exam> c = cb.createQuery(Exam.class);
+        Root<Exam> examRoot = c.from(Exam.class);
+        c.select(examRoot).where(cb.equal(examRoot.get("patient"), patient));
+        return entityManager.createQuery(c).getResultList();
     }
 }

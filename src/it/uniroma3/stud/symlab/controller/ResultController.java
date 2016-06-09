@@ -109,5 +109,7 @@ public class ResultController {
     public void setExamId(Long examId) {
         this.examId = examId;
     }
+
+
 }
 

@@ -18,9 +18,27 @@
                 <p>...</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
-            <a href="admin.jsp">Finto login Amministratore</a>
-            <a href="admin.jsp">Finto login Paziente</a>
-            <a href="admin.jsp">Finto login Dottore</a>
+
+            <div class="well">
+                <ul>
+                    <li><a href="admin.jsp">Finto login Amministratore</a></li>
+                    <li><a href="">Finto login Paziente</a></li>
+                    <li><a href="">Finto login Dottore</a></li>
+                </ul>
+            </div>
+
+            <h2>I nostri esami</h2>
+            <div class="row">
+                <c:forEach var="typeExam" items="#{typeExamController.allTypeExams}">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="well">
+                            <h3>${typeExam.name}</h3>
+                            <p>${typeExam.description}</p>
+                            <p><strong>${typeExam.price} €</strong></p>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
         </f:view>
     </jsp:body>
 </t:genericpage>

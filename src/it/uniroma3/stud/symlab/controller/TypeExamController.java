@@ -6,6 +6,7 @@ import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import java.util.List;
 
 /**
  * Created by federicoYusteenappar on 30/05/16.
@@ -66,5 +67,9 @@ public class TypeExamController {
 
     public void setCode(Long id) {
         this.code = code;
+    }
+
+    public List<TypeExam> getAllTypeExams() {
+        return typeExamFacade.getAllTypeExams();
     }
 }

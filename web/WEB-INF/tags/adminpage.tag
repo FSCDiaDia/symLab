@@ -37,7 +37,6 @@
         <jsp:doBody/>
     </div>
     <div id="pagefooter">
-        <p id="copyright">Copyright &copy; 2016</p>
         <jsp:invoke fragment="footer"/>
     </div>
 </div>

@@ -16,6 +16,8 @@
             <div class="jumbotron">
                 <h1>Benvenuto amministratore</h1>
             </div>
+
+
         </f:view>
     </jsp:body>
 </t:adminpage>

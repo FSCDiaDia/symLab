@@ -4,15 +4,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:genericpage>
+<t:adminpage>
     <jsp:attribute name="header">
-    <h1>Create Exam</h1>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
 
         <f:view>
+            <h1>Create Exam</h1>
+
             <h:form>
                 <div class="form-group">
                     <h:outputLabel for="type-exam">Type Exam</h:outputLabel>
@@ -87,4 +88,4 @@
         </f:view>
 
     </jsp:body>
-</t:genericpage>
+</t:adminpage>

@@ -138,4 +138,8 @@ public class ExamController {
         Patient patient = this.patientFacade.getAllPatient().get(0);
         return examFacade.getListExamsByPatient(patient);
     }
+
+    public List<Exam> getListExamsWithNoResults() {
+        return examFacade.getListExamsWithNoResults();
+    }
 }

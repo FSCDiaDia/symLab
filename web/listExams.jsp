@@ -16,8 +16,8 @@
 <body>
 <div class="form-group">
 
-    <c:forEach var="item" items="#{examController.listExamsSample}">
-        ${item.creationData}
+    <c:forEach var="item" items="${examController.listExamsWithNoResults}">
+        ${item.id}<br>
     </c:forEach>
 
 </body>

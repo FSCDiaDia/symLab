@@ -16,7 +16,6 @@ public class Patient {
     @Column(nullable = false)
     private String name;
 
-    @Column
     @OneToMany
     private List<Exam> exams;
 

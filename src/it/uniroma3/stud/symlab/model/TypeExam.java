@@ -20,11 +20,9 @@ public class TypeExam {
     @Column(nullable = false)
     private float price;
 
-    @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Requirement> requirements;
 
-    @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Map<Long, Indicator> indicators;
 

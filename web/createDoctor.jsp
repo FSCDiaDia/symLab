@@ -12,6 +12,7 @@
     </jsp:attribute>
 
     <jsp:body>
+        <h1>Create Doctor</h1>
         <f:view>
             <h:form>
                 <div class="form-group">

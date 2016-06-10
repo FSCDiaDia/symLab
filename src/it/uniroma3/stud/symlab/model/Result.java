@@ -15,7 +15,6 @@ public class Result {
     @Column(nullable = false)
     private float value;
 
-    @Column
     @OneToOne
     private Indicator indicator;
 

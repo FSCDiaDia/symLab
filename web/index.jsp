@@ -14,8 +14,8 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
-                <h1>Welcome to SymLab</h1>
-                <p>The first lab online!</p>
+                <h1>Welcome to SYMlab!</h1>
+                <p>...</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
 

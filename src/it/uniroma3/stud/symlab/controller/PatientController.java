@@ -6,9 +6,8 @@ import it.uniroma3.stud.symlab.model.facade.PatientFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 
-@SessionScoped
+
 @ManagedBean
 public class PatientController {
 

@@ -12,11 +12,10 @@ import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
 
-@SessionScoped
+
 @ManagedBean
 public class ExamController {
 

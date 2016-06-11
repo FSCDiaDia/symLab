@@ -17,9 +17,9 @@
             <a class="navbar-brand" href="#">SymLab</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="${pageContext.request.contextPath}/insertResults.jsp">Visualizza Risultati</a></li>
-            <li><a href="${pageContext.request.contextPath}/examsToDo.jsp">Esami da fare</a></li>
-            <li><a href="${pageContext.request.contextPath}/examsHistory.jsp">Cronologia esami</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/insertResults.jsp">Insert results</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/examsToDo.jsp">Exams' to do</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/examsHistory.jsp">Exams' history</a></li>
         </ul>
         <jsp:invoke fragment="header"/>
         <ul class="nav navbar-nav navbar-right">

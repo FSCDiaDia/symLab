@@ -12,7 +12,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <f:view></f:view>
         <h1>Create Type Exam</h1>
         <f:view>
             <h:form>
@@ -41,7 +40,22 @@
                                      rows="5"
                                      styleClass="form-control"
                                      id="description"/>
-
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="requirement">Requirements:</h:outputLabel>
+                    <h:selectManyCheckbox value="#{typeExamController.requirements}"
+                                          required="true"
+                                          requiredMessage="Requirements are mandatory"
+                                          styleClass="form-control"
+                                          id="requirement">
+                        <f:selectItem itemValue="Incinta" itemLabel="Incinta"/>
+                        <f:selectItem itemValue="Digiuno" itemLabel="Digiuno da 12 ore"/>
+                        <f:selectItem itemValue="Tatuaggi" itemLabel="Tatuaggi recenti"/>
+                        <f:selectItem itemValue="Viaggi" itemLabel="Viaggi in paesi a rischio"/>
+                        <f:selectItem itemValue="Medicinali assunti"
+                                      itemLabel="Medicinali assunti nelle ultime 48 ore"/>
+                        <f:selectItem itemValue="Alcolici" itemLabel="Alcolici assunti nelle ultime 48 ore"/>
+                    </h:selectManyCheckbox>
                 </div>
                 <div>
                     <h:commandButton value="Submit" action="#{typeExamController.createTypeExam}"

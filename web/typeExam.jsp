@@ -19,6 +19,10 @@
         <dd>${typeExamController.typeExam.price}</dd>
         <dt>Description</dt>
         <dd>${typeExamController.typeExam.description}</dd>
+        <dt>Requirements:</dt>
+        <ui:repeat value="#{typeExamController.requirements}" var="s">
+            #{s}
+        </ui:repeat>
     </dl>
     </f:view>
 </body>

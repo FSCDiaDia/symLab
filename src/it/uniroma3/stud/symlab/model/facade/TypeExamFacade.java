@@ -1,5 +1,6 @@
 package it.uniroma3.stud.symlab.model.facade;
 
+import it.uniroma3.stud.symlab.model.Requirement;
 import it.uniroma3.stud.symlab.model.TypeExam;
 
 import javax.ejb.Stateless;
@@ -14,8 +15,8 @@ public class TypeExamFacade {
     @PersistenceContext(unitName = "symlab-unit")
     EntityManager em;
 
-    public TypeExam createTypeExam(String name, Float price, String description) {
-        TypeExam typeExam = new TypeExam(name, price, description);
+    public TypeExam createTypeExam(String name, Float price, String description, List<Requirement> requirements) {
+        TypeExam typeExam = new TypeExam(name, price, description, requirements);
         em.persist(typeExam);
         return typeExam;
     }

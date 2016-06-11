@@ -10,8 +10,10 @@ import it.uniroma3.stud.symlab.model.facade.ResultFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.util.List;
 
+@SessionScoped
 @ManagedBean
 public class ResultController {
 
@@ -108,6 +110,10 @@ public class ResultController {
 
     public void setExamId(Long examId) {
         this.examId = examId;
+    }
+
+    public List<Patient> getAllPatients() {
+        return patientFacade.getAllPatients();
     }
 
 

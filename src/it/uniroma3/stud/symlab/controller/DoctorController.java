@@ -6,11 +6,13 @@ import it.uniroma3.stud.symlab.model.facade.DoctorFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 /**
  * Created by serena on 03/06/16.
  */
 
+@SessionScoped
 @ManagedBean
 public class DoctorController {
 

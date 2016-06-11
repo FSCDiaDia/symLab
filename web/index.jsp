@@ -14,16 +14,16 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
-                <h1>Benvenuti su SymLab</h1>
-                <p>...</p>
+                <h1>Welcome to SymLab</h1>
+                <p>The first lab online!</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
 
             <div class="well">
                 <ul>
                     <li><a href="admin.jsp">Finto login Amministratore</a></li>
-                    <li><a href="">Finto login Paziente</a></li>
-                    <li><a href="">Finto login Dottore</a></li>
+                    <li><a href="patientLogin.jsp">Finto login Paziente</a></li>
+                    <li><a href="doctorLogin.jsp">Finto login Dottore</a></li>
                 </ul>
             </div>
 
@@ -34,7 +34,7 @@
                         <div class="well">
                             <h3>${typeExam.name}</h3>
                             <p>${typeExam.description}</p>
-                            <p><strong>${typeExam.price} €</strong></p>
+                            <p><strong>${typeExam.price} euro</strong></p>
                         </div>
                     </div>
                 </c:forEach>

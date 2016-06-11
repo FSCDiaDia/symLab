@@ -10,13 +10,14 @@ public class Requirement {
     private long id;
 
     @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
     private String value;
 
 
     public Requirement() {
+    }
+
+    public Requirement(String value) {
+        this.value = value;
     }
 
     public long getId() {
@@ -26,15 +27,6 @@ public class Requirement {
     public void setId(long id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     public String getValue() {
         return value;

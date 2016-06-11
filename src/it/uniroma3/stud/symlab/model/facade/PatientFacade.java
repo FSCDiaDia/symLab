@@ -37,7 +37,7 @@ public class PatientFacade {
         deletePatient(patient);
     }
 
-    public List<Patient> getAllPatient() {
+    public List<Patient> getAllPatients() {
         CriteriaQuery<Patient> cq = entityManager.getCriteriaBuilder().createQuery(Patient.class);
         cq.select(cq.from(Patient.class));
         return entityManager.createQuery(cq).getResultList();

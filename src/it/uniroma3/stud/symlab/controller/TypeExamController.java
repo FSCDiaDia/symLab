@@ -1,16 +1,19 @@
 package it.uniroma3.stud.symlab.controller;
 
+import it.uniroma3.stud.symlab.model.Requirement;
 import it.uniroma3.stud.symlab.model.TypeExam;
 import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import java.util.List;
 
 /**
  * Created by federicoYusteenappar on 30/05/16.
  */
+@SessionScoped
 @ManagedBean
 public class TypeExamController {
 
@@ -22,6 +25,7 @@ public class TypeExamController {
     private String description;
     private Float price;
     private TypeExam typeExam;
+    private List<Requirement> requirements;
 
     public TypeExam getTypeExam() {
         return typeExam;
@@ -32,7 +36,7 @@ public class TypeExamController {
     }
 
     public String createTypeExam() {
-        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description);
+        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, requirements);
         return "typeExam";
 
     }
@@ -71,5 +75,13 @@ public class TypeExamController {
 
     public List<TypeExam> getAllTypeExams() {
         return typeExamFacade.getAllTypeExams();
+    }
+
+    public List<Requirement> getRequirements() {
+        return requirements;
+    }
+
+    public void setRequirements(List<Requirement> requirements) {
+        this.requirements = requirements;
     }
 }

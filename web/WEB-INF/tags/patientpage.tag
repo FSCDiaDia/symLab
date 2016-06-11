@@ -17,9 +17,8 @@
             <a class="navbar-brand" href="#">SymLab</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="${pageContext.request.contextPath}/faces/showResults.jsp">Visualizza Risultati</a></li>
-            <li><a href="${pageContext.request.contextPath}/faces/personalDetails.jsp">Visualizza informazioni personali
-                sul paziente</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/showResults.jsp">Show Results</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/personalDetails.jsp">Show Personal' details</a></li>
         </ul>
         <jsp:invoke fragment="header"/>
         <ul class="nav navbar-nav navbar-right">

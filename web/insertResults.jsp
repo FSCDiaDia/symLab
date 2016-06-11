@@ -1,54 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
-<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert Results</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
-</head>
-<body>
-<div class="container">
-    <h1>Insert Results</h1>
-    <f:view>
-    <h:form>
-    <div class="form-group">
-        <h:outputLabel for="patient">Patient</h:outputLabel>
-        <h:selectOneMenu value="#{resultController.patientId}"
-                         required="true"
-                         requiredMessage="Patient is mandatory"
-                         styleClass="form-control"
-                         id="patient">
-            <c:forEach var="item" items="#{examController.patients}">
-                <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
-            </c:forEach>
-        </h:selectOneMenu>
-        <h:message styleClass="help-block" for="patient"/>
-    </div>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-    <div class="form-group">
-        <h:outputLabel for="exam">Patient's exams</h:outputLabel>
-        <h:selectOneMenu value="#{resultController.examId}"
-                         required="true"
-                         requiredMessage="Exam is mandatory"
-                         styleClass="form-control"
-                         id="exam">
-            <c:forEach var="item" items="#{resultController.exams}">
-                <f:selectItem itemValue="#{item.id}" itemLabel="#{item.name}"/>
-            </c:forEach>
-        </h:selectOneMenu>
-        <h:message styleClass="help-block" for="patient"/>
-    </div>
+<t:doctorpage>
+    <jsp:attribute name="header">
+    </jsp:attribute>
 
-    <div>
-        <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{resultController.insertResults}"/>
-    </div>
+    <jsp:attribute name="footer">
+    </jsp:attribute>
 
-    </h:form>
-    </f:view>
-</body>
-</html>
+    <jsp:body>
+        <h1>Insert Results</h1>
+        <f:view>
+            <h:form>
+                <div class="form-group">
+
+                    <h:outputLabel for="patient">Patient</h:outputLabel>
+                    <h:selectOneMenu value="#{resultController.patientId}"
+                                     required="true"
+                                     requiredMessage="Patient is mandatory"
+                                     styleClass="form-control"
+                                     id="patient">
+                        <c:forEach var="item" items="#{examController.patients}">
+                            <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
+                    <h:message styleClass="help-block" for="patient"/>
+                </div>
+
+                <%--<div class="form-group">--%>
+                <%--<h:outputLabel for="exam">Patient's exams</h:outputLabel>--%>
+                <%--<h:selectOneMenu value="#{resultController.examId}"--%>
+                <%--required="true"--%>
+                <%--requiredMessage="Exam is mandatory"--%>
+                <%--styleClass="form-control"--%>
+                <%--id="exam">--%>
+                <%--<c:forEach var="item" items="#{resultController.exams}">--%>
+                <%--<f:selectItem itemValue="#{item.id}" itemLabel="#{item.typeExam.name}"/>--%>
+                <%--</c:forEach>--%>
+                <%--</h:selectOneMenu>--%>
+                <%--<h:message styleClass="help-block" for="patient"/>--%>
+                <%--</div>--%>
+
+                <div>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary"
+                                     action="#{resultController.insertResults}"/>
+                </div>
+
+            </h:form>
+        </f:view>
+    </jsp:body>
+</t:doctorpage>

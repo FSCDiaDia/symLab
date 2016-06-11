@@ -29,13 +29,14 @@ public class TypeExam {
     private Map<Long, Indicator> indicators;
 
 
-    public TypeExam() {
-    }
-
-    public TypeExam(String name, float price, String description) {
+    public TypeExam(String name, Float price, String description, List<Requirement> requirements) {
         this.description = description;
         this.name = name;
         this.price = price;
+        this.requirements = requirements;
+    }
+
+    public TypeExam() {
     }
 
     public String getName() {

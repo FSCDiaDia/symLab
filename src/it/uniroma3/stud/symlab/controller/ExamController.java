@@ -12,9 +12,11 @@ import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
 
+@SessionScoped
 @ManagedBean
 public class ExamController {
 
@@ -99,7 +101,7 @@ public class ExamController {
     }
 
     public List<Patient> getPatients() {
-        return patientFacade.getAllPatient();
+        return patientFacade.getAllPatients();
     }
 
     public Long getTypeExamId() {
@@ -135,7 +137,7 @@ public class ExamController {
     }
 
     public List<Exam> getListExamsSample() {
-        Patient patient = this.patientFacade.getAllPatient().get(0);
+        Patient patient = this.patientFacade.getAllPatients().get(0);
         return examFacade.getListExamsByPatient(patient);
     }
 }

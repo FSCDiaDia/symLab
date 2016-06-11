@@ -10,8 +10,6 @@ import javax.faces.bean.ManagedProperty;
 /**
  * Created by serena on 03/06/16.
  */
-
-
 @ManagedBean
 public class DoctorController {
 

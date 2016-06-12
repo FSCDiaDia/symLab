@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New Exam</title>
+    <title>Admin's Page</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-theme.css"/>
@@ -14,14 +14,14 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">SymLab</a>
+            <a class="navbar-brand" href="/faces/index.jsp">SymLab</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="${pageContext.request.contextPath}/faces/createPatient.jsp">Crea Paziente</a></li>
-            <li><a href="${pageContext.request.contextPath}/faces/createTypeExam.jsp">Crea Tipologia Esame</a></li>
-            <li><a href="${pageContext.request.contextPath}/faces/createDoctor.jsp">Crea Dottore</a></li>
-            <li><a href="${pageContext.request.contextPath}/faces/createExam.jsp">Crea Esame</a></li>
-            <li><a href="${pageContext.request.contextPath}/faces/insertResults.jsp">Inserisci Risultati</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/createPatient.jsp">Create Patient</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/createTypeExam.jsp">Create TypeExam</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/createDoctor.jsp">Create Doctor</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/createExam.jsp">Create Exam</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/insertResults.jsp">Insert Results</a></li>
         </ul>
         <jsp:invoke fragment="header"/>
         <ul class="nav navbar-nav navbar-right">

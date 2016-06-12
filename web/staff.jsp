@@ -14,7 +14,8 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
-                <h1>Exams' to Do</h1>
+                <h1>Our staff</h1>
+                <img src="http://listsurge.com/wp-content/uploads/2016/03/doctors.png">
             </div>
         </f:view>
     </jsp:body>

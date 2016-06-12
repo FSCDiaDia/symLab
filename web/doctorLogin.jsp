@@ -14,7 +14,7 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
-                <h1>Benvenuto dottore ${doctorController.name}</h1>
+                <h1>Welcome doctor ${doctorController.name}</h1>
             </div>
         </f:view>
     </jsp:body>

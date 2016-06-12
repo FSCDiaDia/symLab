@@ -48,13 +48,13 @@
                                           requiredMessage="Requirements are mandatory"
                                           styleClass="form-control"
                                           id="requirement">
-                        <f:selectItem itemValue="Incinta" itemLabel="Incinta"/>
-                        <f:selectItem itemValue="Digiuno" itemLabel="Digiuno da 12 ore"/>
-                        <f:selectItem itemValue="Tatuaggi" itemLabel="Tatuaggi recenti"/>
-                        <f:selectItem itemValue="Viaggi" itemLabel="Viaggi in paesi a rischio"/>
-                        <f:selectItem itemValue="Medicinali assunti"
-                                      itemLabel="Medicinali assunti nelle ultime 48 ore"/>
-                        <f:selectItem itemValue="Alcolici" itemLabel="Alcolici assunti nelle ultime 48 ore"/>
+                        <f:selectItem itemValue="Pregnancy" itemLabel="Pregnancy"/>
+                        <f:selectItem itemValue="Without food" itemLabel="Without food from 12 hours"/>
+                        <f:selectItem itemValue="Tattoos" itemLabel="Recent tattoos"/>
+                        <f:selectItem itemValue="Travel" itemLabel="Travel in a risk area"/>
+                        <f:selectItem itemValue="Medicinal"
+                                      itemLabel="Recently used medicinals"/>
+                        <f:selectItem itemValue="Alcoholics" itemLabel="Recently used alcoholics"/>
                     </h:selectManyCheckbox>
                 </div>
                 <div>

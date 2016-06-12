@@ -15,8 +15,13 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">SymLab</a>
+            <a class="navbar-brand" href="/faces/index.jsp">SymLab</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li><a href="${pageContext.request.contextPath}/faces/staff.jsp">Our staff</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/contacts.jsp">Contact us</a></li>
+
+        </ul>
         <jsp:invoke fragment="header"/>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="${pageContext.request.contextPath}/faces/login.jsp">Login</a></li>

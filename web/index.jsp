@@ -14,20 +14,26 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
-                <h1>Welcome to SYMlab!</h1>
-                <p>...</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                <h1>Welcome</h1>
+                <img src="http://science-all.com/images/laboratory/laboratory-02.jpg" align="right" width="450px"
+                     height="300px">
+                <p>The Sensini Yusteenappar Micocci Laboratory (SYMLab) provides a wide-range of analyses for
+                    environmental
+                    and biological samples using state-of-the-art analytical equipment and techniques.
+                    Our clientele includes researchers, state and federal agencies, crop
+                    consultants, farmers, home gardeners, and others across New York, the nation, and the world.</p>
+                <p><a class="btn btn-primary btn-lg" href="/faces/info.jsp" role="button">Learn more</a></p>
             </div>
 
             <div class="well">
                 <ul>
-                    <li><a href="admin.jsp">Finto login Amministratore</a></li>
+                    <li><a href="adminLogin.jsp">Finto login Amministratore</a></li>
                     <li><a href="patientLogin.jsp">Finto login Paziente</a></li>
                     <li><a href="doctorLogin.jsp">Finto login Dottore</a></li>
                 </ul>
             </div>
 
-            <h2>I nostri esami</h2>
+            <h2>Our exams</h2>
             <div class="row">
                 <c:forEach var="typeExam" items="#{typeExamController.allTypeExams}">
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

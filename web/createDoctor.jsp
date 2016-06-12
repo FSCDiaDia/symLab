@@ -35,23 +35,23 @@
                 </div>
 
                 <div class="form-group">
-                    <h:outputLabel for="specialization">Specialization</h:outputLabel>
-                    <h:selectOneMenu id="specialization"
+                    <h:outputLabel for="specialty">Specialization</h:outputLabel>
+                    <h:selectOneMenu id="specialty"
                                      required="true"
-                                     requiredMessage="Specialization is mandatory"
+                                     requiredMessage="Specialty is mandatory"
                                      styleClass="form-control"
                                      value="#{doctorController.specialization}">
-                        <f:selectItem itemValue="Chirurgia" itemLabel="Chirurgia"/>
-                        <f:selectItem itemValue="Ortopedia" itemLabel="Ortopedia"/>
-                        <f:selectItem itemValue="Pediatria" itemLabel="Pediatria"/>
-                        <f:selectItem itemValue="Ginecologia" itemLabel="Ginecologia"/>
-                        <f:selectItem itemValue="Radiologia" itemLabel="Radiologia"/>
-                        <f:selectItem itemValue="Dermatologia" itemLabel="Dermatologia"/>
-                        <f:selectItem itemValue="Otorinolaringoiatria" itemLabel="Otorinolaringoiatria"/>
-                        <f:selectItem itemValue="Endocrinologia" itemLabel="Endocrinologia"/>
-                        <f:selectItem itemValue="Psicologia" itemLabel="Psicologia"/>
+                        <f:selectItem itemValue="Surgery" itemLabel="Surgery"/>
+                        <f:selectItem itemValue="Pathology" itemLabel="Pathology"/>
+                        <f:selectItem itemValue="Cardiology" itemLabel="Cardiology"/>
+                        <f:selectItem itemValue="Geriatrics" itemLabel="Geriatrics"/>
+                        <f:selectItem itemValue="Orthopaedics" itemLabel="Orthopaedics"/>
+                        <f:selectItem itemValue="Neurology" itemLabel="Neurology"/>
+                        <f:selectItem itemValue="Paediatrics" itemLabel="Paediatrics"/>
+                        <f:selectItem itemValue="Psychiatry" itemLabel="Psychiatry"/>
+                        <f:selectItem itemValue="Radiotherapy" itemLabel="Radiotherapy"/>
                     </h:selectOneMenu>
-                    <h:message styleClass="help-block" for="specialization"/>
+                    <h:message styleClass="help-block" for="specialty"/>
                 </div>
                 <div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary"

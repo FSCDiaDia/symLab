@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity
-@NamedQuery(name = "Exam.listWithNoResults", query = "SELECT e FROM Exam e")
+@NamedQuery(name = "Exam.listWithNoResults", query = "SELECT e FROM Exam e WHERE SIZE(e.results) = 0")
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -16,11 +16,15 @@ public class Indicator {
     @ManyToOne(fetch = FetchType.EAGER)
     private TypeExam typeExam;
 
+    public Indicator(String name, TypeExam typeExam) {
+        this.name = name;
+        this.typeExam = typeExam;
+    }
+
     public Indicator() {
     }
 
     public long getId() {
-
         return id;
     }
 

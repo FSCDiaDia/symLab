@@ -21,6 +21,7 @@ public class TypeExamController {
     private String name;
     private String description;
     private Float price;
+    private String indicators;
     private TypeExam typeExam;
 
     public TypeExam getTypeExam() {
@@ -32,9 +33,9 @@ public class TypeExamController {
     }
 
     public String createTypeExam() {
-        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description);
+        String[] indicators = this.indicators.split("\n");
+        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, indicators);
         return "typeExam";
-
     }
 
     public String getName() {
@@ -71,5 +72,13 @@ public class TypeExamController {
 
     public List<TypeExam> getAllTypeExams() {
         return typeExamFacade.getAllTypeExams();
+    }
+
+    public String getIndicators() {
+        return indicators;
+    }
+
+    public void setIndicators(String indicators) {
+        this.indicators = indicators;
     }
 }

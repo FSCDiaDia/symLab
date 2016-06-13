@@ -2,7 +2,6 @@ package it.uniroma3.stud.symlab.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
 
 @Entity
@@ -23,9 +22,8 @@ public class TypeExam {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Requirement> requirements;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private Map<Long, Indicator> indicators;
-
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "typeExam")
+    private List<Indicator> indicators;
 
     public TypeExam() {
     }
@@ -76,12 +74,11 @@ public class TypeExam {
         this.requirements = requirements;
     }
 
-
-    public Map<Long, Indicator> getIndicators() {
+    public List<Indicator> getIndicators() {
         return indicators;
     }
 
-    public void setIndicators(Map<Long, Indicator> indicators) {
+    public void setIndicators(List<Indicator> indicators) {
         this.indicators = indicators;
     }
 }

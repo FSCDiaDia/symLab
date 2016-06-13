@@ -43,6 +43,16 @@
                                      id="description"/>
 
                 </div>
+                <div class="form-group">
+                    <h:outputLabel for="indicators">Indicators (separated by newline)</h:outputLabel>
+                    <h:inputTextarea value="#{typeExamController.indicators}"
+                                     required="false"
+                                     cols="20"
+                                     rows="5"
+                                     styleClass="form-control"
+                                     id="indicators"/>
+
+                </div>
                 <div>
                     <h:commandButton value="Submit" action="#{typeExamController.createTypeExam}"
                                      styleClass="btn btn-primary"/>

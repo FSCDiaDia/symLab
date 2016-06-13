@@ -1,5 +1,6 @@
 package it.uniroma3.stud.symlab.model.facade;
 
+import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.TypeExam;
 
 import javax.ejb.Stateless;
@@ -14,9 +15,13 @@ public class TypeExamFacade {
     @PersistenceContext(unitName = "symlab-unit")
     EntityManager em;
 
-    public TypeExam createTypeExam(String name, Float price, String description) {
+    public TypeExam createTypeExam(String name, Float price, String description, String[] indicatorStrings) {
         TypeExam typeExam = new TypeExam(name, price, description);
         em.persist(typeExam);
+        for (String indicatorString : indicatorStrings) {
+            Indicator indicator = new Indicator(indicatorString, typeExam);
+            em.persist(indicator);
+        }
         return typeExam;
     }
 

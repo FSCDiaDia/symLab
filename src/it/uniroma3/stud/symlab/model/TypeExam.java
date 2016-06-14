@@ -25,11 +25,10 @@ public class TypeExam {
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "typeExam")
     private List<Indicator> indicators;
 
-    public TypeExam(String name, Float price, String description, List<Requirement> requirements) {
+    public TypeExam(String name, Float price, String description) {
         this.description = description;
         this.name = name;
         this.price = price;
-        this.requirements = requirements;
     }
 
     public TypeExam() {

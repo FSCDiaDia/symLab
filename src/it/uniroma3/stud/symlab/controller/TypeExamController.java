@@ -36,7 +36,7 @@ public class TypeExamController {
 
     public String createTypeExam() {
         String[] indicators = this.indicators.split("\n");
-        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, requirements, indicators);
+        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, indicators);
         return "typeExam";
     }
 

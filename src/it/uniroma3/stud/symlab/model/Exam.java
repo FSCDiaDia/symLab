@@ -2,10 +2,11 @@ package it.uniroma3.stud.symlab.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 
 @Entity
+@NamedQuery(name = "Exam.listWithNoResults", query = "SELECT e FROM Exam e WHERE SIZE(e.results) = 0")
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,22 +20,17 @@ public class Exam {
     @Column(nullable = false)
     private Date achievementData;
 
-    @Column
     @ManyToOne
     private TypeExam typeExam;
 
-    @Column
     @ManyToOne
     private Patient patient;
 
-    @Column
     @ManyToOne
     private Doctor doctor;
 
-    @Column
-    @OneToMany
-    private Map<Long, Result> results;
-
+    @OneToMany(mappedBy = "exam")
+    private List<Result> results;
 
     public Exam() {
     }
@@ -95,14 +91,12 @@ public class Exam {
         this.typeExam = typeExam;
     }
 
-
-    public Map<Long, Result> getResults() {
+    public List<Result> getResults() {
         return results;
     }
 
-    public void setResults(Map<Long, Result> results) {
+    public void setResults(List<Result> results) {
         this.results = results;
     }
-
 
 }

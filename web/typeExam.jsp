@@ -1,4 +1,5 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,12 @@
         <ui:repeat value="#{typeExamController.requirements}" var="s">
             #{s}
         </ui:repeat>
+        <dt>Indicators</dt>
+        <dd>
+            <c:forEach var="indicator" items="${typeExamController.typeExam.indicators}">
+                ${indicator.name}<br>
+            </c:forEach>
+        </dd>
     </dl>
     </f:view>
 </body>

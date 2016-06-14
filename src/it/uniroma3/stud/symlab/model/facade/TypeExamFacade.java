@@ -1,5 +1,6 @@
 package it.uniroma3.stud.symlab.model.facade;
 
+import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.Requirement;
 import it.uniroma3.stud.symlab.model.TypeExam;
 
@@ -16,8 +17,12 @@ public class TypeExamFacade {
     EntityManager em;
 
     public TypeExam createTypeExam(String name, Float price, String description, List<Requirement> requirements) {
-        TypeExam typeExam = new TypeExam(name, price, description, requirements);
+        TypeExam typeExam = new TypeExam(name, price, description, requirements); // TODO
         em.persist(typeExam);
+        for (String indicatorString : indicatorStrings) {
+            Indicator indicator = new Indicator(indicatorString, typeExam);
+            em.persist(indicator);
+        }
         return typeExam;
     }
 

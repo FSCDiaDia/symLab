@@ -50,4 +50,9 @@ public class ExamFacade {
         c.select(examRoot).where(cb.equal(examRoot.get("patient"), patient));
         return entityManager.createQuery(c).getResultList();
     }
+
+    public List<Exam> getListExamsWithNoResults() {
+        List resultList = entityManager.createNamedQuery("Exam.listWithNoResults").getResultList();
+        return resultList;
+    }
 }

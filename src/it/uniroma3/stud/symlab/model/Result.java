@@ -18,6 +18,9 @@ public class Result {
     @OneToOne
     private Indicator indicator;
 
+    @ManyToOne
+    private Exam exam;
+
     public Result() {
     }
 
@@ -45,4 +48,11 @@ public class Result {
         this.id = id;
     }
 
+    public Exam getExam() {
+        return exam;
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
+    }
 }

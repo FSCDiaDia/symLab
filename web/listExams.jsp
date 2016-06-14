@@ -15,10 +15,22 @@
 </head>
 <body>
 <div class="form-group">
-
-    <c:forEach var="item" items="#{examController.listExamsSample}">
-        ${item.creationData}
-    </c:forEach>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Achievement Data</th>
+        </tr>
+        <c:forEach var="exam" items="${examController.listExamsWithNoResults}">
+            <tr>
+                <td>${exam.id}</td>
+                <td>${exam.patient.fullName}</td>
+                <td>${exam.doctor.fullName}</td>
+                <td>${exam.achievementData}</td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </body>
 </html>

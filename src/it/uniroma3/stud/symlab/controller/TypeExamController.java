@@ -22,6 +22,7 @@ public class TypeExamController {
     private String name;
     private String description;
     private Float price;
+    private String indicators;
     private TypeExam typeExam;
     private List<Requirement> requirements;
 
@@ -34,9 +35,9 @@ public class TypeExamController {
     }
 
     public String createTypeExam() {
-        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, requirements);
+        String[] indicators = this.indicators.split("\n");
+        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, requirements, indicators);
         return "typeExam";
-
     }
 
     public String getName() {
@@ -81,5 +82,13 @@ public class TypeExamController {
 
     public void setRequirements(List<Requirement> requirements) {
         this.requirements = requirements;
+    }
+
+    public String getIndicators() {
+        return indicators;
+    }
+
+    public void setIndicators(String indicators) {
+        this.indicators = indicators;
     }
 }

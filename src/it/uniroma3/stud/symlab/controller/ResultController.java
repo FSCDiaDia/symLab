@@ -36,11 +36,6 @@ public class ResultController {
     public ResultController() {
     }
 
-    //working in progress
-    public String insertResults() {
-        this.result = this.resultFacade.insertResults();
-        return "result";
-    }
 
     public String getNameIndicator() {
         return nameIndicator;

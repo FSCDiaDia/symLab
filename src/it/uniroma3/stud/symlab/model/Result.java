@@ -21,6 +21,12 @@ public class Result {
     @ManyToOne
     private Exam exam;
 
+    public Result(float value, Indicator indicator, Exam exam) {
+        this.value = value;
+        this.indicator = indicator;
+        this.exam = exam;
+    }
+
     public Result() {
     }
 

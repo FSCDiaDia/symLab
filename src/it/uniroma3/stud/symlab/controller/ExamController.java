@@ -4,16 +4,15 @@ import it.uniroma3.stud.symlab.model.Doctor;
 import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Patient;
 import it.uniroma3.stud.symlab.model.TypeExam;
-import it.uniroma3.stud.symlab.model.facade.DoctorFacade;
-import it.uniroma3.stud.symlab.model.facade.ExamFacade;
-import it.uniroma3.stud.symlab.model.facade.PatientFacade;
-import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
+import it.uniroma3.stud.symlab.model.facade.*;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @ManagedBean
@@ -31,6 +30,9 @@ public class ExamController {
     @EJB
     private PatientFacade patientFacade;
 
+    @EJB
+    private ResultFacade resultFacade;
+
     @ManagedProperty(value = "#{param.id}")
     private Long id;
     private Date achievementDate;
@@ -41,6 +43,7 @@ public class ExamController {
     private Doctor doctor;
     private Long patientId;
     private Long doctorId;
+    private Map<Long, String> indicators = new HashMap<>();
 
     public ExamController() {
     }
@@ -142,5 +145,28 @@ public class ExamController {
 
     public List<Exam> getListExamsWithNoResults() {
         return examFacade.getListExamsWithNoResults();
+    }
+
+    public String getLoadExamFromQueryString() {
+        this.exam = examFacade.getExam(id);
+        return "";
+    }
+
+    public Map<Long, String> getIndicators() {
+        return indicators;
+    }
+
+    public void setIndicators(Map<Long, String> indicators) {
+        this.indicators = indicators;
+    }
+
+    public String insertResults() {
+        for (Map.Entry<Long, String> longStringEntry : indicators.entrySet()) {
+            Long key = longStringEntry.getKey();
+            String value = longStringEntry.getValue();
+            System.out.println(key);
+            System.out.println(value);
+        }
+        return "result";
     }
 }

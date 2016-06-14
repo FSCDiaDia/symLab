@@ -15,40 +15,18 @@
         <h1>Insert Results</h1>
         <f:view>
             <h:form>
+                ${examController.loadExamFromQueryString}
                 <div class="form-group">
-
-                    <h:outputLabel for="patient">Patient</h:outputLabel>
-                    <h:selectOneMenu value="#{resultController.patientId}"
+                    <c:forEach var="indicator" items="${examController.exam.typeExam.indicators}">
+                        <h:outputLabel>${indicator.name}</h:outputLabel>
+                        <h:inputText value="#{examController.indicators[indicator.id]}"
                                      required="true"
-                                     requiredMessage="Patient is mandatory"
-                                     styleClass="form-control"
-                                     id="patient">
-                        <c:forEach var="item" items="#{examController.patients}">
-                            <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
-                        </c:forEach>
-                    </h:selectOneMenu>
-                    <h:message styleClass="help-block" for="patient"/>
+                                     requiredMessage="it is mandatory"
+                                     styleClass="form-control"/>
+                    </c:forEach>
                 </div>
-
-                <%--<div class="form-group">--%>
-                <%--<h:outputLabel for="exam">Patient's exams</h:outputLabel>--%>
-                <%--<h:selectOneMenu value="#{resultController.examId}"--%>
-                <%--required="true"--%>
-                <%--requiredMessage="Exam is mandatory"--%>
-                <%--styleClass="form-control"--%>
-                <%--id="exam">--%>
-                <%--<c:forEach var="item" items="#{resultController.exams}">--%>
-                <%--<f:selectItem itemValue="#{item.id}" itemLabel="#{item.typeExam.name}"/>--%>
-                <%--</c:forEach>--%>
-                <%--</h:selectOneMenu>--%>
-                <%--<h:message styleClass="help-block" for="patient"/>--%>
-                <%--</div>--%>
-
-                <div>
-                    <h:commandButton value="Submit" styleClass="btn btn-primary"
-                                     action="#{resultController.insertResults}"/>
-                </div>
-
+                <h:commandButton value="Submit" styleClass="btn btn-primary"
+                                 action="#{examController.insertResults}"/>
             </h:form>
         </f:view>
     </jsp:body>

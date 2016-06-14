@@ -5,17 +5,19 @@ import it.uniroma3.stud.symlab.model.facade.PatientFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 
 @ManagedBean
+@SessionScoped
 public class PatientController {
 
     private String lastname;
     private String name;
     private Patient patient;
-    @ManagedProperty(value = "#{param.id}")
     private Long id;
+    private String username;
+    private String password;
     @EJB
     private PatientFacade patientFacade;
 
@@ -36,7 +38,7 @@ public class PatientController {
     }
 
     public String createPatient() {
-        this.patient = this.patientFacade.createPatient(name, lastname);
+        this.patient = this.patientFacade.createPatient(name, lastname, username, password);
         return "patient";
 
     }
@@ -55,5 +57,21 @@ public class PatientController {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

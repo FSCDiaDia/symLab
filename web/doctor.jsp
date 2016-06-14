@@ -10,17 +10,24 @@
 <body>
 <div class="container">
     <f:view>
-        <h1>Doctor's details</h1>
-        <dl class="dl-horizontal">
-            <dt>Id</dt>
-            <dd>${doctorController.doctor.id}</dd>
-            <dt>Name</dt>
-            <dd>${doctorController.doctor.name}</dd>
-            <dt>Last Name</dt>
-            <dd>${doctorController.doctor.lastname}</dd>
-            <dt>Specialization</dt>
-            <dd>${doctorController.doctor.specialization}</dd>
-        </dl>
+        <div class="jumbotron">
+            <h1>Doctor's details</h1>
+            <dl class="dl-horizontal">
+                <dt>Id</dt>
+                <dd>${doctorController.doctor.id}</dd>
+                <dt>Name</dt>
+                <dd>${doctorController.doctor.name}</dd>
+                <dt>Last Name</dt>
+                <dd>${doctorController.doctor.lastname}</dd>
+                <dt>Specialty</dt>
+                <dd>${doctorController.doctor.specialization}</dd>
+                <dt>Username:</dt>
+                <dd>${doctorController.doctor.username}</dd>
+                <dt>Password:</dt>
+                <dd>${doctorController.doctor.password}</dd>
+
+            </dl>
+        </div>
     </f:view>
 </div>
 </body>

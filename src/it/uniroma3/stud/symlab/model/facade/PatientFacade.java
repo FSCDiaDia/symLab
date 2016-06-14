@@ -5,8 +5,11 @@ import it.uniroma3.stud.symlab.model.Patient;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Stateless
@@ -14,8 +17,8 @@ public class PatientFacade {
     @PersistenceContext(unitName = "symlab-unit")
     EntityManager entityManager;
 
-    public Patient createPatient(String name, String lastname) {
-        Patient patient = new Patient(name, lastname);
+    public Patient createPatient(String name, String lastname, String username, String password) {
+        Patient patient = new Patient(name, lastname, username, password);
         entityManager.persist(patient);
         return patient;
     }
@@ -46,5 +49,17 @@ public class PatientFacade {
     //implementare
     public List<Exam> getAllExams(Long patientId) {
         return null;
+    }
+
+    public Patient findByUsername(String username) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Patient> c = cb.createQuery(Patient.class);
+        Root<Patient> patientRoot = c.from(Patient.class);
+        c.select(patientRoot).where(cb.equal(patientRoot.get("username"), username));
+        try {
+            return entityManager.createQuery(c).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

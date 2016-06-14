@@ -1,16 +1,32 @@
 package it.uniroma3.stud.symlab.model;
 
+import javax.persistence.*;
 
+@Entity
 public class Admin {
-    private String user;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column
+    private String username;
+    @Column
     private String password;
 
-    public String getUser() {
-        return user;
+    public Admin() {
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public Admin(String password, String username) {
+        this.password = password;
+        this.username = username;
+    }
+
+    public String getUser() {
+        return username;
+    }
+
+    public void setUser(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

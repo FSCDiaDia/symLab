@@ -22,6 +22,7 @@
             <li><a href="${pageContext.request.contextPath}/faces/createDoctor.jsp">Create Doctor</a></li>
             <li><a href="${pageContext.request.contextPath}/faces/createExam.jsp">Create Exam</a></li>
             <li><a href="${pageContext.request.contextPath}/faces/insertResults.jsp">Insert Results</a></li>
+            <li><a href="${pageContext.request.contextPath}/faces/doctorExams.jsp">Doctor's Exams</a></li>
         </ul>
         <jsp:invoke fragment="header"/>
         <ul class="nav navbar-nav navbar-right">

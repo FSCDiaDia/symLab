@@ -6,18 +6,16 @@ import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import java.util.List;
 
-/**
- * Created by federicoYusteenappar on 30/05/16.
- */
+
 @ManagedBean
+@SessionScoped
 public class TypeExamController {
 
     @EJB
     TypeExamFacade typeExamFacade;
-    @ManagedProperty(value = "#{param.code}")
     private Long code;
     private String name;
     private String description;

@@ -2,9 +2,7 @@ package it.uniroma3.stud.symlab.model;
 
 import javax.persistence.*;
 
-/**
- * Created by federicoYusteenappar on 01/06/16.
- */
+
 @Entity
 public class Result {
 

@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:patientpage>
+<t:adminpage>
     <jsp:attribute name="header">
     </jsp:attribute>
 
@@ -24,8 +24,13 @@
                 <dd>${patientController.patient.name}</dd>
                 <dt>LastName:</dt>
                 <dd>${patientController.patient.lastname}</dd>
+                <dt>Username:</dt>
+                <dd>${patientController.patient.username}</dd>
+                <dt>Password:</dt>
+                <dd>${patientController.patient.password}</dd>
+
             </dl>
 
         </f:view>
     </jsp:body>
-</t:patientpage>
+</t:adminpage>

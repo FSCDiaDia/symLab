@@ -31,6 +31,22 @@
                                  styleClass="form-control"
                                  id="lastname"/> <h:message for="lastname"/>
                 </div>
+                <div class="form-group">
+                    <h:outputLabel for="username">Username</h:outputLabel>
+                    <h:inputText value="#{patientController.username}"
+                                 required="true"
+                                 requiredMessage="username is mandatory"
+                                 styleClass="form-control"
+                                 id="username"/> <h:message for="username"/>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="password">Password</h:outputLabel>
+                    <h:inputSecret value="#{patientController.password}"
+                                   required="true"
+                                   requiredMessage="password is mandatory"
+                                   styleClass="form-control"
+                                   id="password"/> <h:message for="password"/>
+                </div>
                 <div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary"
                                      action="#{patientController.createPatient}"/>

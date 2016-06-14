@@ -9,20 +9,24 @@
 </head>
 <body>
 <div class="container">
-<f:view>
-    <h1>Exam</h1>
-    <h2>Details</h2>
-    <dl class="dl-horizontal">
-        <dt>Id</dt>
-        <dd>${examController.exam.id}</dd>
-        <dt>Patient</dt>
-        <dd>${examController.exam.patient.fullName}</dd>
-        <dt>Doctor</dt>
-        <dd>${examController.exam.doctor.fullName}</dd>
-        <dt>TypeExam</dt>
-        <dd>${examController.exam.typeExam.name}</dd>
-        <dt>Price</dt>
-        <dd>${examController.exam.typeExam.price} €</dd>
-        </f:view>
+    <f:view>
+    <div class="jumbotron">
+        <h1>Exam</h1>
+        <h2>Details</h2>
+        <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>${examController.exam.id}</dd>
+            <dt>Patient</dt>
+            <dd>${examController.exam.patient.fullName}</dd>
+            <dt>Doctor</dt>
+            <dd>${examController.exam.doctor.fullName}</dd>
+            <dt>TypeExam</dt>
+            <dd>${examController.exam.typeExam.name}</dd>
+            <dt>Price</dt>
+            <dd>${examController.exam.typeExam.price} €</dd>
+    </div>
+
+    </f:view>
+
 </body>
 </html>

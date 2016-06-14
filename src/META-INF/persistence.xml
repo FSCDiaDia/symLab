@@ -7,9 +7,11 @@
         <class>it.uniroma3.stud.symlab.model.Doctor</class>
         <class>it.uniroma3.stud.symlab.model.Exam</class>
         <class>it.uniroma3.stud.symlab.model.Indicator</class>
+        <class>it.uniroma3.stud.symlab.model.Doctor</class>
         <class>it.uniroma3.stud.symlab.model.Patient</class>
-        <class>it.uniroma3.stud.symlab.model.Result</class>
         <class>it.uniroma3.stud.symlab.model.TypeExam</class>
+        <class>it.uniroma3.stud.symlab.model.Admin</class>
+
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings"
                       value="buildSchema(ForeignKeys=true)"/>

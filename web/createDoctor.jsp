@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="form-group">
-                    <h:outputLabel for="specialty">Specialization</h:outputLabel>
+                    <h:outputLabel for="specialty">Specialty</h:outputLabel>
                     <h:selectOneMenu id="specialty"
                                      required="true"
                                      requiredMessage="Specialty is mandatory"
@@ -52,6 +52,24 @@
                         <f:selectItem itemValue="Radiotherapy" itemLabel="Radiotherapy"/>
                     </h:selectOneMenu>
                     <h:message styleClass="help-block" for="specialty"/>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="username">Username</h:outputLabel>
+                    <h:inputText value="#{doctorController.username}"
+                                 required="true"
+                                 requiredMessage="Username is mandatory"
+                                 styleClass="form-control"
+                                 id="username"/>
+                    <h:message styleClass="help-block" for="username"/>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="password">Password</h:outputLabel>
+                    <h:inputSecret value="#{doctorController.password}"
+                                   required="true"
+                                   requiredMessage="Password is mandatory"
+                                   styleClass="form-control"
+                                   id="password"/>
+                    <h:message styleClass="help-block" for="password"/>
                 </div>
                 <div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary"

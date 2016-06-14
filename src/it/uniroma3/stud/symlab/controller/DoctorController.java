@@ -1,24 +1,27 @@
 package it.uniroma3.stud.symlab.controller;
 
 import it.uniroma3.stud.symlab.model.Doctor;
+import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.facade.DoctorFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import java.util.List;
 
-/**
- * Created by serena on 03/06/16.
- */
+
 @ManagedBean
+@SessionScoped
 public class DoctorController {
 
     private String lastname;
     private String name;
     private Doctor doctor;
     private String specialization;
+    private String username;
+    private String password;
+    private List<Exam> doctorExams;
 
-    @ManagedProperty(value = "#{param.id}")
     private Long id;
     @EJB
     private DoctorFacade doctorFacade;
@@ -40,7 +43,7 @@ public class DoctorController {
     }
 
     public String createDoctor() {
-        this.doctor = this.doctorFacade.createDoctor(name, lastname, specialization);
+        this.doctor = this.doctorFacade.createDoctor(name, lastname, specialization, username, password);
         return "doctor";
 
     }
@@ -69,4 +72,32 @@ public class DoctorController {
         this.specialization = specialization;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Exam> getDoctorExams() {
+        return doctorExams;
+    }
+
+    public void setDoctorExams(List<Exam> doctorExams) {
+        this.doctorExams = doctorExams;
+    }
+
+    public String allDoctorExams() {
+        doctorExams = this.doctorFacade.ExamsfindByfullName(name, lastname);
+        return "listDoctorExams";
+    }
 }

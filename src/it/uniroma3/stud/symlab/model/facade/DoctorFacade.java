@@ -1,16 +1,18 @@
 package it.uniroma3.stud.symlab.model.facade;
 
 import it.uniroma3.stud.symlab.model.Doctor;
+import it.uniroma3.stud.symlab.model.Exam;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
-/**
- * Created by serena on 03/06/16.
- */
 
 @Stateless
 public class DoctorFacade {
@@ -18,8 +20,8 @@ public class DoctorFacade {
     @PersistenceContext(unitName = "symlab-unit")
     private EntityManager em;
 
-    public Doctor createDoctor(String name, String lastname, String specialization) {
-        Doctor doctor = new Doctor(name, lastname, specialization);
+    public Doctor createDoctor(String name, String lastname, String specialization, String username, String password) {
+        Doctor doctor = new Doctor(name, lastname, specialization, username, password);
         em.persist(doctor);
         return doctor;
     }
@@ -45,5 +47,24 @@ public class DoctorFacade {
     public void deleteDoctor(Long id) {
         Doctor doctor = em.find(Doctor.class, id);
         deleteDoctor(doctor);
+    }
+
+    public Doctor findByUsername(String username) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Doctor> c = cb.createQuery(Doctor.class);
+        Root<Doctor> doctorRoot = c.from(Doctor.class);
+        c.select(doctorRoot).where(cb.equal(doctorRoot.get("username"), username));
+        try {
+            return em.createQuery(c).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Exam> ExamsfindByfullName(String name, String lastname) {
+        Query q = em.createQuery("SELECT e FROM Exam e WHERE e.doctor.name='" + name + "' AND e.doctor.lastname='" + lastname + "'");
+        return q.getResultList();
     }
 }

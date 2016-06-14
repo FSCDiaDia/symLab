@@ -18,17 +18,25 @@
 
                     <div class="account-wall">
                         <h1 class="text-center login-title">Login to SymLab</h1>
-                        <form class="form-signin">
-                            <input type="text" class="form-control" placeholder="Username" required autofocus>
-                            <input type="password" class="form-control" placeholder="Password" required>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                Sign in
-                            </button>
+                        <h:form styleClass="form-signin">
+                            <h:inputText value="#{loginController.username}"
+                                         required="true"
+                                         requiredMessage="username is mandatory"
+                                         styleClass="form-control"
+                                         id="username"/> <h:message for="username"/>
+                            <h:inputSecret value="#{loginController.password}"
+                                           required="true"
+                                           requiredMessage="password is mandatory"
+                                           styleClass="form-control"
+                                           id="password"/> <h:message for="password"/>
+                            <h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+                                             action="#{loginController.loginUser}">
+                            </h:commandButton>
                             <label class="checkbox pull-left">
                                 <input type="checkbox" value="remember-me">
                                 Remember me
                             </label>
-                        </form>
+                        </h:form>
                     </div>
                 </div>
             </div>

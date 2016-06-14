@@ -5,6 +5,7 @@ import java.util.List;
 
 
 @Entity
+
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,17 +20,24 @@ public class Doctor {
     @Column(nullable = false)
     private String specialization;
 
-    @OneToMany
+    @OneToMany(mappedBy = "doctor")
     private List<Exam> examList;
+
+    @Column
+    private String password;
+    @Column
+    private String username;
 
     public Doctor() {
 
     }
 
-    public Doctor(String name, String lastname, String specialization) {
+    public Doctor(String name, String lastname, String specialization, String username, String password) {
         this.lastname = lastname;
         this.name = name;
         this.specialization = specialization;
+        this.username = username;
+        this.password = password;
     }
 
     public long getId() {
@@ -74,5 +82,21 @@ public class Doctor {
 
     public String getFullName() {
         return getLastname() + " " + getName();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

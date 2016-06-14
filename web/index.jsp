@@ -25,14 +25,6 @@
                 <p><a class="btn btn-primary btn-lg" href="/faces/info.jsp" role="button">Learn more</a></p>
             </div>
 
-            <div class="well">
-                <ul>
-                    <li><a href="adminLogin.jsp">Finto login Amministratore</a></li>
-                    <li><a href="patientLogin.jsp">Finto login Paziente</a></li>
-                    <li><a href="doctorLogin.jsp">Finto login Dottore</a></li>
-                </ul>
-            </div>
-
             <h2>Our exams</h2>
             <div class="row">
                 <c:forEach var="typeExam" items="#{typeExamController.allTypeExams}">

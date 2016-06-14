@@ -29,7 +29,7 @@ public class Exam {
     @ManyToOne
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "exam")
+    @OneToMany
     private List<Result> results;
 
     public Exam() {

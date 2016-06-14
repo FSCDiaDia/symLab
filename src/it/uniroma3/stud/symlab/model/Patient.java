@@ -15,17 +15,23 @@ public class Patient {
 
     @Column(nullable = false)
     private String name;
+    @Column
+    private String password;
+    @Column
+    private String username;
 
-    @OneToMany
+    @OneToMany(mappedBy = "patient")
     private List<Exam> exams;
 
     public Patient() {
 
     }
 
-    public Patient(String name, String lastname) {
+    public Patient(String name, String lastname, String username, String password) {
         this.lastname = lastname;
         this.name = name;
+        this.password = password;
+        this.username = username;
     }
 
     public long getId() {
@@ -62,5 +68,21 @@ public class Patient {
 
     public String getFullName() {
         return getLastname() + " " + getName();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

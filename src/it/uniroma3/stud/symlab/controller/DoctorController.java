@@ -98,6 +98,6 @@ public class DoctorController {
 
     public String allDoctorExams() {
         doctorExams = this.doctorFacade.ExamsfindByfullName(name, lastname);
-        return "listDoctorExams";
+        return "listDoctorExams.jsp";
     }
 }

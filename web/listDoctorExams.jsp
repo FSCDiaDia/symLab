@@ -15,12 +15,12 @@
         <f:view>
             <div class="jumbotron">
                 <ul>
-                    <c:forEach var="item" items="#{doctorController.getDoctorExams}">
+                    <c:forEach var="item" items="#{doctorController.doctorExams}">
 
 
-                        <li> Exam : "${item.typeExam.name}"</li>
-                        <li> Exam : "${item.patient.fullName}"</li>
-                        <li> Exam : "${item.achievementData}"</li>
+                        <li> NameExam : "${item.typeExam.name}"</li>
+                        <li> Name Patient : "${item.patient.fullName}"</li>
+                        <li> achievementData : "${item.achievementData}"</li>
 
 
                     </c:forEach>

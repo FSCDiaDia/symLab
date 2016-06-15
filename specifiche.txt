@@ -55,10 +55,10 @@ Il sistema mostra un riepilogo con i dati inseriti.
 Precondizioni:
 l'amministratore è identificato e autenticato
 
-Problematica non risolte:
+Problematiche non risolte:
 
 -L'inserimento dei risultati è gestito solo nella presentazione, per quanto riguarda lo strato della persistenza ci sono stati problemi tra l'acquisizione dei valori dalla form e la 
 aggiunta nella base di dati.
 -Gli indicatori sono stati trattati come delle stringhe nella parte della presentazione (separati da un newline) e gestiti successivamente in maniera persistente.
 -Problemi di autorizzazione : i filter non funzionano correttamente verificando che l'utente(admin ,paziente, dottore) sia effettivamente loggato nelle operazioni successive).
--Alcuni bugs grafici.
+

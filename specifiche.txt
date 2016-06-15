@@ -1,0 +1,64 @@
+Progetto sistemi informativi sul web 2015/2016
+Realizzato da : Serena Sensini , Federico Yusteenappar , Christian Micocci.
+
+SymLab
+
+Casi d'uso implementati (persistenza inclusa):
+
+Caso d'uso UC1: consulta offerta
+Attore primario: utente non registrato
+Scenario principale di successo: 
+L'utente consulta l'elenco delle tipologie di esame
+L'utente sceglie una tipologia di esame e ne richiede i dettagli 
+Il sistema mostra i dettagli della tipologia di esame scelta dall'utente
+L'utente ripete i passi precedenti un numero indefinito di volte
+----------------------------------------------------------------------------------------------------------------
+Caso d'uso UC2: crea esame (prenotazione)
+Attore primario: amministrazione
+Scenario principale di successo: 
+L'ammistrazione crea un esame
+L'amministrazione imposta una tipologia di esame all'esame creato
+L'amministrazione associa un paziente all'esame creato
+Il sistema registra l'esame (impostando automaticamente la data di prenotazione)
+Precondizioni: l'amministratore è identificato e autenticato
+----------------------------------------------------------------------------------------------------------------
+Caso d'uso UC4: inserimento tipologia di esame
+Attore primario: amministrazione
+Scenario principale:
+L'amministratore inserisce una nuova tipologia di esame specificandone i dettagli
+Il sistema registra la tipologia di esame
+I punti precedenti vengono ripetuti fino a che necessario
+Precondizioni: l'amministratore è identificato e autenticato
+-----------------------------------------------------------------------------------------------------------------
+
+Caso d'uso UC5: esami effettuati da un medico
+Attore primario: amministrazione
+Scenario principale:
+L’amministratore fornisce nome e cognome di un medico
+Il sistema mostra all’amministratore tutti gli esami effettuati dal medico
+Precondizioni: l’amministratore è identificato e autenticato
+-----------------------------------------------------------------------------------------------------------------
+Caso d'uso UC6: inserimento risultati esame(Problemi nella persistenza)
+Attore primario: amministrazione
+Scenario principale:
+L'amministrazione inserisce un codice esame
+Il sistema presenta all'amministratore l'esame corrispondente al codice immesso
+L'amministratore inserisce tutti i risultati dell'esame
+Precondizioni:
+l'amministratore è identificato e autenticato
+-----------------------------------------------------------------------------------------------------------------
+Caso d'uso aggiuntivo :inserimento di un dottore
+Attore primario : amministrazione
+Scenario principale:
+L'amministrazione inserisce il nome,cognome,la specializzazione,username e password di un medico
+Il sistema mostra un riepilogo con i dati inseriti.
+Precondizioni:
+l'amministratore è identificato e autenticato
+
+Problematica non risolte:
+
+-L'inserimento dei risultati è gestito solo nella presentazione, per quanto riguarda lo strato della persistenza ci sono stati problemi tra l'acquisizione dei valori dalla form e la 
+aggiunta nella base di dati.
+-Gli indicatori sono stati trattati come delle stringhe nella parte della presentazione (separati da un newline) e gestiti successivamente in maniera persistente.
+-Problemi di autorizzazione : i filter non funzionano correttamente verificando che l'utente(admin ,paziente, dottore) sia effettivamente loggato nelle operazioni successive).
+-Alcuni bugs grafici.

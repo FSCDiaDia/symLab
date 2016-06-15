@@ -12,12 +12,15 @@ public class Requirement {
     @Column(nullable = false)
     private String value;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private TypeExam typeExam;
 
     public Requirement() {
     }
 
-    public Requirement(String value) {
+    public Requirement(String value, TypeExam typeExam) {
         this.value = value;
+        this.typeExam = typeExam;
     }
 
     public long getId() {

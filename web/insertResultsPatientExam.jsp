@@ -20,7 +20,8 @@
                     <h:outputLabel for="indicator">Indicators' to Add</h:outputLabel>
 
                     <c:forEach var="item" items="#{resultController.indicators}">
-                        <h:inputTextarea value="#{resultController.exam.results}" label="#{item.name}"
+                        <h:inputTextarea value="#{resultController.exam.findResult(item.name).value}"
+                                         label="#{item.name}"
                                          required="true"
                                          requiredMessage="First Name is mandatory"
                                          styleClass="form-control"

@@ -1,5 +1,6 @@
 package it.uniroma3.stud.symlab.controller;
 
+import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.Requirement;
 import it.uniroma3.stud.symlab.model.TypeExam;
 import it.uniroma3.stud.symlab.model.facade.TypeExamFacade;
@@ -22,7 +23,7 @@ public class TypeExamController {
     private Float price;
     private String indicators;
     private TypeExam typeExam;
-    private List<Requirement> requirements;
+    private String requirements;
 
     public TypeExam getTypeExam() {
         return typeExam;
@@ -34,7 +35,8 @@ public class TypeExamController {
 
     public String createTypeExam() {
         String[] indicators = this.indicators.split("\n");
-        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, indicators);
+        String[] requirements = this.requirements.split("\n");
+        this.typeExam = this.typeExamFacade.createTypeExam(name, price, description, indicators, requirements);
         return "typeExam";
     }
 
@@ -74,11 +76,11 @@ public class TypeExamController {
         return typeExamFacade.getAllTypeExams();
     }
 
-    public List<Requirement> getRequirements() {
+    public String getRequirements() {
         return requirements;
     }
 
-    public void setRequirements(List<Requirement> requirements) {
+    public void setRequirements(String requirements) {
         this.requirements = requirements;
     }
 
@@ -88,5 +90,17 @@ public class TypeExamController {
 
     public void setIndicators(String indicators) {
         this.indicators = indicators;
+    }
+
+    public List<Requirement> getAllReq() {
+        return this.typeExamFacade.getAllReq(this.idTypeExam());
+    }
+
+    public List<Indicator> getAllInd() {
+        return this.typeExamFacade.getAllInd(this.idTypeExam());
+    }
+
+    public Long idTypeExam() {
+        return this.typeExam.getId();
     }
 }

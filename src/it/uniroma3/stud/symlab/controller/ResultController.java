@@ -119,8 +119,8 @@ public class ResultController {
 
 
     public String examResults() {
-        this.indicators = this.examFacade.setResults(typeExamId);
-        return "insertResultsPatientChosenExam";
+        //this.indicators = this.examFacade.setResults(typeExamId);
+        return "insertResultsPatientExam";
     }
 
     public List<Indicator> getIndicators() {

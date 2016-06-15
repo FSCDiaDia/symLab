@@ -1,9 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: federicoYusteenappar
-  Date: 06/06/16
-  Time: 13:26
-  To change this template use File | Settings | File Templates.
+%--
+DEPRECATED
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>

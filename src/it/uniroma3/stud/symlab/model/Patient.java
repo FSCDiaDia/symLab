@@ -17,7 +17,7 @@ public class Patient {
     private String name;
     @Column
     private String password;
-    @Column
+    @Column(unique = true)
     private String username;
 
     @OneToMany(mappedBy = "patient")

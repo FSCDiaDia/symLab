@@ -41,22 +41,18 @@
                                      styleClass="form-control"
                                      id="description"/>
                 </div>
+
                 <div class="form-group">
-                    <h:outputLabel for="requirement">Requirements:</h:outputLabel>
-                    <h:selectManyCheckbox value="#{typeExamController.requirements}"
-                                          required="true"
-                                          requiredMessage="Requirements are mandatory"
-                                          styleClass="form-control"
-                                          id="requirement">
-                        <f:selectItem itemValue="Pregnancy" itemLabel="Pregnancy"/>
-                        <f:selectItem itemValue="Without food" itemLabel="Without food from 12 hours"/>
-                        <f:selectItem itemValue="Tattoos" itemLabel="Recent tattoos"/>
-                        <f:selectItem itemValue="Travel" itemLabel="Travel in a risk area"/>
-                        <f:selectItem itemValue="Medicinal"
-                                      itemLabel="Recently used medicinals"/>
-                        <f:selectItem itemValue="Alcoholics" itemLabel="Recently used alcoholics"/>
-                    </h:selectManyCheckbox>
+                    <h:outputLabel for="requirements">Requirements (separated by newline)</h:outputLabel>
+                    <h:inputTextarea value="#{typeExamController.requirements}"
+                                     required="false"
+                                     cols="20"
+                                     rows="5"
+                                     styleClass="form-control"
+                                     id="requirements"/>
+
                 </div>
+
                 <div class="form-group">
                     <h:outputLabel for="indicators">Indicators (separated by newline)</h:outputLabel>
                     <h:inputTextarea value="#{typeExamController.indicators}"

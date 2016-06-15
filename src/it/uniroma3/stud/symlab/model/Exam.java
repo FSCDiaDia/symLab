@@ -109,4 +109,13 @@ public class Exam {
     public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
+
+    public Result findResult(String nameInd) {
+        int index = 0;
+        for (int i = 0; i < results.size(); i++) {
+            if (results.get(i).getIndicator().getName().equals(nameInd))
+                index = i;
+        }
+        return results.get(index);
+    }
 }

@@ -25,7 +25,7 @@ public class Doctor {
 
     @Column
     private String password;
-    @Column
+    @Column(unique = true)
     private String username;
 
     public Doctor() {

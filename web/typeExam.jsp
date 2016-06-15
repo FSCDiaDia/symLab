@@ -11,26 +11,30 @@
 <body>
 <div class="container">
     <f:view>
-    <h1>${typeExamController.typeExam.name}</h1>
-    <h2>Details</h2>
-    <dl class="dl-horizontal">
-        <dt>Id</dt>
-        <dd>${typeExamController.typeExam.id}</dd>
-        <dt>Price</dt>
-        <dd>${typeExamController.typeExam.price}</dd>
-        <dt>Description</dt>
-        <dd>${typeExamController.typeExam.description}</dd>
-        <dt>Requirements:</dt>
-        <ui:repeat value="#{typeExamController.typeExam.requirements}" var="s">
-            #{s}
-        </ui:repeat>
-        <dt>Indicators</dt>
-        <dd>
-            <c:forEach var="indicator" items="${typeExamController.typeExam.indicators}">
-                ${indicator.name}<br>
-            </c:forEach>
-        </dd>
-    </dl>
+    <div class="jumbotron">
+        <h1>${typeExamController.typeExam.name}</h1>
+        <h2>Details</h2>
+        <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>${typeExamController.typeExam.id}</dd>
+            <dt>Price</dt>
+            <dd>${typeExamController.typeExam.price} euro</dd>
+            <dt>Description</dt>
+            <dd>${typeExamController.typeExam.description}</dd>
+            <dt>Requirements:</dt>
+            <dd>
+                <c:forEach var="requirement" items="${typeExamController.allReq}">
+                    ${requirement.value}<br>
+                </c:forEach>
+            </dd>
+            <dt>Indicators:</dt>
+            <dd>
+                <c:forEach var="indicator" items="${typeExamController.allInd}">
+                    ${indicator.name}<br>
+                </c:forEach>
+            </dd>
+        </dl>
+    </div>
     </f:view>
 </body>
 </html>

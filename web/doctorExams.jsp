@@ -12,28 +12,31 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="jumbotron">
         <h1>Doctor's Exams</h1>
         <f:view>
             <h:form>
                 <div class="form-group">
-
-                    <h:outputLabel for="doctor">Doctor</h:outputLabel>
-                    <h:selectOneMenu value="#{examController.doctorId}"
-                                     required="true"
-                                     requiredMessage="Doctor is mandatory"
-                                     styleClass="form-control"
-                                     id="doctor">
-                        <c:forEach var="item" items="#{examController.doctors}">
-                            <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
-                        </c:forEach>
-                    </h:selectOneMenu>
-                    <h:message styleClass="help-block" for="doctor"/>
+                    <h:outputLabel for="name">First Name</h:outputLabel>
+                    <h:inputText value="#{doctorController.name}"
+                                 required="true"
+                                 requiredMessage="First Name is mandatory"
+                                 styleClass="form-control"
+                                 id="name"/>
+                    <h:message styleClass="help-block" for="name"/>
                 </div>
+                <div class="form-group">
+                    <h:outputLabel for="lastname">Last Name</h:outputLabel>
+                    <h:inputText value="#{doctorController.lastname}"
+                                 required="true"
+                                 requiredMessage="Last Name is mandatory"
+                                 styleClass="form-control"
+                                 id="lastname"/>
+                    <h:message styleClass="help-block" for="lastname"/>
+                </div>
+
 
                 <h:commandButton value="Submit" styleClass="btn btn-primary"
                                  action="#{doctorController.allDoctorExams}"/>
-                </div>
                 </div>
 
             </h:form>

@@ -1,0 +1,552 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.5
+-- Dumped by pg_dump version 9.4.5
+-- Started on 2016-06-15 17:54:25 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 184 (class 3079 OID 12123)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2351 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 21613)
+-- Name: admin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE admin (
+    id bigint NOT NULL,
+    password character varying(255),
+    username character varying(255)
+);
+
+
+ALTER TABLE admin OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 21621)
+-- Name: doctor; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE doctor (
+    id bigint NOT NULL,
+    lastname character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    password character varying(255),
+    specialization character varying(255) NOT NULL,
+    username character varying(255)
+);
+
+
+ALTER TABLE doctor OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 21629)
+-- Name: exam; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE exam (
+    id bigint NOT NULL,
+    achievementdata date NOT NULL,
+    creationdata timestamp without time zone NOT NULL,
+    doctor_id bigint,
+    patient_id bigint,
+    typeexam_id bigint,
+    patientid bigint
+);
+
+
+ALTER TABLE exam OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 21634)
+-- Name: exam_result; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE exam_result (
+    exam_id bigint,
+    results_id bigint
+);
+
+
+ALTER TABLE exam_result OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 21637)
+-- Name: indicator; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE indicator (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    typeexam_id bigint
+);
+
+
+ALTER TABLE indicator OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 21642)
+-- Name: openjpa_sequence_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE openjpa_sequence_table (
+    id smallint NOT NULL,
+    sequence_value bigint
+);
+
+
+ALTER TABLE openjpa_sequence_table OWNER TO postgres;
+
+--
+-- TOC entry 178 (class 1259 OID 21647)
+-- Name: patient; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE patient (
+    id bigint NOT NULL,
+    lastname character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    password character varying(255),
+    username character varying(255)
+);
+
+
+ALTER TABLE patient OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 21655)
+-- Name: requirement; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE requirement (
+    id bigint NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+ALTER TABLE requirement OWNER TO postgres;
+
+--
+-- TOC entry 180 (class 1259 OID 21660)
+-- Name: result; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE result (
+    id bigint NOT NULL,
+    value real NOT NULL,
+    exam_id bigint,
+    indicator_id bigint
+);
+
+
+ALTER TABLE result OWNER TO postgres;
+
+--
+-- TOC entry 181 (class 1259 OID 21665)
+-- Name: typeexam; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE typeexam (
+    id bigint NOT NULL,
+    description character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    price real NOT NULL
+);
+
+
+ALTER TABLE typeexam OWNER TO postgres;
+
+--
+-- TOC entry 182 (class 1259 OID 21673)
+-- Name: typeexam_indicator; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE typeexam_indicator (
+    typeexam_id bigint,
+    indicators_id bigint
+);
+
+
+ALTER TABLE typeexam_indicator OWNER TO postgres;
+
+--
+-- TOC entry 183 (class 1259 OID 21676)
+-- Name: typeexam_requirement; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE typeexam_requirement (
+    typeexam_id bigint,
+    requirements_id bigint
+);
+
+
+ALTER TABLE typeexam_requirement OWNER TO postgres;
+
+--
+-- TOC entry 2332 (class 0 OID 21613)
+-- Dependencies: 172
+-- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY admin (id, password, username) FROM stdin;
+1	admin	admin
+\.
+
+
+--
+-- TOC entry 2333 (class 0 OID 21621)
+-- Dependencies: 173
+-- Data for Name: doctor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY doctor (id, lastname, name, password, specialization, username) FROM stdin;
+101	Yusteenappar	Federico	doctor	Surgery	doctor
+\.
+
+
+--
+-- TOC entry 2334 (class 0 OID 21629)
+-- Dependencies: 174
+-- Data for Name: exam; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY exam (id, achievementdata, creationdata, doctor_id, patient_id, typeexam_id, patientid) FROM stdin;
+251	2016-05-09	2016-06-15 11:33:48.46	101	1	151	\N
+252	2016-05-10	2016-06-15 11:34:21.335	101	52	151	\N
+\.
+
+
+--
+-- TOC entry 2335 (class 0 OID 21634)
+-- Dependencies: 175
+-- Data for Name: exam_result; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY exam_result (exam_id, results_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2336 (class 0 OID 21637)
+-- Dependencies: 176
+-- Data for Name: indicator; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY indicator (id, name, typeexam_id) FROM stdin;
+202	glugosio	151
+201	emoglobina\r	151
+\.
+
+
+--
+-- TOC entry 2337 (class 0 OID 21642)
+-- Dependencies: 177
+-- Data for Name: openjpa_sequence_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY openjpa_sequence_table (id, sequence_value) FROM stdin;
+0	301
+\.
+
+
+--
+-- TOC entry 2338 (class 0 OID 21647)
+-- Dependencies: 178
+-- Data for Name: patient; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY patient (id, lastname, name, password, username) FROM stdin;
+1	Yusteenappar	Federico	patient	patient
+51	Sensini	Serena	patient	patient
+52	Rossi	Mario	patient1	patient1
+\.
+
+
+--
+-- TOC entry 2339 (class 0 OID 21655)
+-- Dependencies: 179
+-- Data for Name: requirement; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY requirement (id, value) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2340 (class 0 OID 21660)
+-- Dependencies: 180
+-- Data for Name: result; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY result (id, value, exam_id, indicator_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2341 (class 0 OID 21665)
+-- Dependencies: 181
+-- Data for Name: typeexam; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY typeexam (id, description, name, price) FROM stdin;
+151	analisi del sangue	Analisi del sangue	12
+\.
+
+
+--
+-- TOC entry 2342 (class 0 OID 21673)
+-- Dependencies: 182
+-- Data for Name: typeexam_indicator; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY typeexam_indicator (typeexam_id, indicators_id) FROM stdin;
+151	201
+151	202
+\.
+
+
+--
+-- TOC entry 2343 (class 0 OID 21676)
+-- Dependencies: 183
+-- Data for Name: typeexam_requirement; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY typeexam_requirement (typeexam_id, requirements_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2194 (class 2606 OID 21620)
+-- Name: admin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY admin
+    ADD CONSTRAINT admin_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2196 (class 2606 OID 21628)
+-- Name: doctor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY doctor
+    ADD CONSTRAINT doctor_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2198 (class 2606 OID 21633)
+-- Name: exam_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY exam
+    ADD CONSTRAINT exam_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2200 (class 2606 OID 21641)
+-- Name: indicator_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY indicator
+    ADD CONSTRAINT indicator_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2202 (class 2606 OID 21646)
+-- Name: openjpa_sequence_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY openjpa_sequence_table
+    ADD CONSTRAINT openjpa_sequence_table_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2204 (class 2606 OID 21654)
+-- Name: patient_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY patient
+    ADD CONSTRAINT patient_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2206 (class 2606 OID 21659)
+-- Name: requirement_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY requirement
+    ADD CONSTRAINT requirement_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2208 (class 2606 OID 21664)
+-- Name: result_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY result
+    ADD CONSTRAINT result_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2210 (class 2606 OID 21672)
+-- Name: typeexam_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY typeexam
+    ADD CONSTRAINT typeexam_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2211 (class 2606 OID 21679)
+-- Name: exam_doctor_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY exam
+    ADD CONSTRAINT exam_doctor_id_fkey FOREIGN KEY (doctor_id) REFERENCES doctor(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2212 (class 2606 OID 21684)
+-- Name: exam_patient_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY exam
+    ADD CONSTRAINT exam_patient_id_fkey FOREIGN KEY (patient_id) REFERENCES patient(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2214 (class 2606 OID 21694)
+-- Name: exam_result_exam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY exam_result
+    ADD CONSTRAINT exam_result_exam_id_fkey FOREIGN KEY (exam_id) REFERENCES exam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2215 (class 2606 OID 21699)
+-- Name: exam_result_results_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY exam_result
+    ADD CONSTRAINT exam_result_results_id_fkey FOREIGN KEY (results_id) REFERENCES result(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2213 (class 2606 OID 21689)
+-- Name: exam_typeexam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY exam
+    ADD CONSTRAINT exam_typeexam_id_fkey FOREIGN KEY (typeexam_id) REFERENCES typeexam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2216 (class 2606 OID 21704)
+-- Name: indicator_typeexam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY indicator
+    ADD CONSTRAINT indicator_typeexam_id_fkey FOREIGN KEY (typeexam_id) REFERENCES typeexam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2217 (class 2606 OID 21709)
+-- Name: result_exam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY result
+    ADD CONSTRAINT result_exam_id_fkey FOREIGN KEY (exam_id) REFERENCES exam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2218 (class 2606 OID 21714)
+-- Name: result_indicator_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY result
+    ADD CONSTRAINT result_indicator_id_fkey FOREIGN KEY (indicator_id) REFERENCES indicator(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2220 (class 2606 OID 21724)
+-- Name: typeexam_indicator_indicators_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY typeexam_indicator
+    ADD CONSTRAINT typeexam_indicator_indicators_id_fkey FOREIGN KEY (indicators_id) REFERENCES indicator(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2219 (class 2606 OID 21719)
+-- Name: typeexam_indicator_typeexam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY typeexam_indicator
+    ADD CONSTRAINT typeexam_indicator_typeexam_id_fkey FOREIGN KEY (typeexam_id) REFERENCES typeexam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2222 (class 2606 OID 21734)
+-- Name: typeexam_requirement_requirements_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY typeexam_requirement
+    ADD CONSTRAINT typeexam_requirement_requirements_id_fkey FOREIGN KEY (requirements_id) REFERENCES requirement(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2221 (class 2606 OID 21729)
+-- Name: typeexam_requirement_typeexam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY typeexam_requirement
+    ADD CONSTRAINT typeexam_requirement_typeexam_id_fkey FOREIGN KEY (typeexam_id) REFERENCES typeexam(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2350 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2016-06-15 17:54:26 CEST
+
+--
+-- PostgreSQL database dump complete
+--
+

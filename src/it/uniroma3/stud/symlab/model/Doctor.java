@@ -20,11 +20,12 @@ public class Doctor {
     @Column(nullable = false)
     private String specialization;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
     private List<Exam> examList;
 
     @Column
     private String password;
+
     @Column(unique = true)
     private String username;
 

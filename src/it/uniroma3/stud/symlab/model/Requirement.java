@@ -12,7 +12,7 @@ public class Requirement {
     @Column(nullable = false)
     private String value;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private TypeExam typeExam;
 
     public Requirement() {

@@ -13,7 +13,7 @@ public class Indicator {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private TypeExam typeExam;
 
     public Indicator(String name, TypeExam typeExam) {

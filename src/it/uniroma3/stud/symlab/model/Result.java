@@ -13,10 +13,10 @@ public class Result {
     @Column(nullable = false)
     private float value;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Indicator indicator;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Exam exam;
 
     public Result() {

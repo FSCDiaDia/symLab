@@ -20,7 +20,7 @@ public class Patient {
     @Column(unique = true)
     private String username;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Exam> exams;
 
     public Patient() {

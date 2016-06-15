@@ -13,7 +13,7 @@ Abbiamo usato le seguenti tecnologie:
 -HTML&CSS
 -OpenJPA
 -JSP
--JSF/JEE
+-JSF/JEE(Template tag)
 -PostgreSQL9.14
 -Javascript(minimal)
 

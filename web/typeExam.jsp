@@ -21,7 +21,7 @@
         <dt>Description</dt>
         <dd>${typeExamController.typeExam.description}</dd>
         <dt>Requirements:</dt>
-        <ui:repeat value="#{typeExamController.requirements}" var="s">
+        <ui:repeat value="#{typeExamController.typeExam.requirements}" var="s">
             #{s}
         </ui:repeat>
         <dt>Indicators</dt>

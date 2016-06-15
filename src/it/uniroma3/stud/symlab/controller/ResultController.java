@@ -5,6 +5,7 @@ import it.uniroma3.stud.symlab.model.Exam;
 import it.uniroma3.stud.symlab.model.Indicator;
 import it.uniroma3.stud.symlab.model.Patient;
 import it.uniroma3.stud.symlab.model.Result;
+import it.uniroma3.stud.symlab.model.facade.ExamFacade;
 import it.uniroma3.stud.symlab.model.facade.PatientFacade;
 import it.uniroma3.stud.symlab.model.facade.ResultFacade;
 
@@ -25,23 +26,22 @@ public class ResultController {
 
     @EJB
     private PatientFacade patientFacade;
+
+    @EJB
+    private ExamFacade examFacade;
+
     private Long patientId;
     private Float value;
     private String nameIndicator;
     private Indicator indicator;
     private Exam exam;
-    private Long examId;
+    private Long typeExamId;
+    private List<Indicator> indicators;
 
     private Result result;
 
 
     public ResultController() {
-    }
-
-    //working in progress
-    public String insertResults() {
-        this.result = this.resultFacade.insertResults();
-        return "result";
     }
 
     public String getNameIndicator() {
@@ -105,12 +105,12 @@ public class ResultController {
         this.result = result;
     }
 
-    public Long getExamId() {
-        return examId;
+    public Long getTypeExamId() {
+        return typeExamId;
     }
 
-    public void setExamId(Long examId) {
-        this.examId = examId;
+    public void setTypeExamId(Long typeExamId) {
+        this.typeExamId = typeExamId;
     }
 
     public List<Patient> getAllPatients() {
@@ -118,5 +118,17 @@ public class ResultController {
     }
 
 
+    public String examResults() {
+        this.indicators = this.examFacade.setResults(typeExamId);
+        return "insertResultsPatientChosenExam";
+    }
+
+    public List<Indicator> getIndicators() {
+        return indicators;
+    }
+
+    public void setIndicators(List<Indicator> indicators) {
+        this.indicators = indicators;
+    }
 }
 

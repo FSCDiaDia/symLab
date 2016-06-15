@@ -1,17 +1,12 @@
 package it.uniroma3.stud.symlab.model.facade;
 
 
-import it.uniroma3.stud.symlab.model.Doctor;
-import it.uniroma3.stud.symlab.model.Exam;
-import it.uniroma3.stud.symlab.model.Patient;
-import it.uniroma3.stud.symlab.model.TypeExam;
+import it.uniroma3.stud.symlab.model.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
@@ -43,16 +38,21 @@ public class ExamFacade {
         deleteExam(exam);
     }
 
-    public List<Exam> getListExamsByPatient(Patient patient) {
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Exam> c = cb.createQuery(Exam.class);
-        Root<Exam> examRoot = c.from(Exam.class);
-        c.select(examRoot).where(cb.equal(examRoot.get("patient"), patient));
-        return entityManager.createQuery(c).getResultList();
-    }
-
     public List<Exam> getListExamsWithNoResults() {
         List resultList = entityManager.createNamedQuery("Exam.listWithNoResults").getResultList();
         return resultList;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Exam> findAllbyId(Long patientId) {
+
+        Query q = entityManager.createQuery("SELECT e FROM Exam AS e WHERE e.patient.id=" + patientId);
+        return q.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Indicator> setResults(Long id) {
+        Query q = entityManager.createQuery("SELECT i FROM Indicator AS i WHERE i.typeExam.id=" + id);
+        return q.getResultList();
     }
 }

@@ -17,23 +17,21 @@
         <f:view>
             <h:form>
                 <div class="form-group">
-
-                    <h:outputLabel for="patient">Patient</h:outputLabel>
-                    <h:selectOneMenu value="#{examController.patientId}"
+                    <h:outputLabel for="exam">Patient's exams</h:outputLabel>
+                    <h:selectOneMenu value="#{resultController.typeExamId}"
                                      required="true"
-                                     requiredMessage="Patient is mandatory"
+                                     requiredMessage="Exam is mandatory"
                                      styleClass="form-control"
-                                     id="patient">
-                        <c:forEach var="item" items="#{examController.patients}">
-                            <f:selectItem itemValue="#{item.id}" itemLabel="#{item.fullName}"/>
+                                     id="exam">
+                        <c:forEach var="item" items="#{examController.patientExams}">
+                            <f:selectItem itemValue="#{item.typeExam.id}" itemLabel="#{item.typeExam.name}"/>
                         </c:forEach>
                     </h:selectOneMenu>
-                    <h:message styleClass="help-block" for="patient"/>
                 </div>
 
                 <div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary"
-                                     action="#{examController.listPatientExams}"/>
+                                     action="#{resultController.examResults}"/>
                 </div>
                 </div>
             </h:form>

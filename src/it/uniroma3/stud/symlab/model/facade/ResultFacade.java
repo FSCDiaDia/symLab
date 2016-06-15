@@ -1,11 +1,11 @@
 package it.uniroma3.stud.symlab.model.facade;
 
 import it.uniroma3.stud.symlab.model.Exam;
-import it.uniroma3.stud.symlab.model.Result;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
@@ -13,14 +13,10 @@ public class ResultFacade {
     @PersistenceContext(unitName = "symlab-unit")
     private EntityManager em;
 
-    //working in progress
-    public Result insertResults() {
+    public List<Exam> findAllbyId(Long id) {
 
-        return null;
-    }
+        Query query = em.createQuery("SELECT e FROM Exam AS e WHERE e.patient.id=" + id);
 
-    //implementare ricerca esami per paziente
-    public List<Exam> getAllExams(Long patientId) {
-        return em.createQuery("select exam from Exam exam where exam.id == " + patientId).getResultList();
+        return query.getResultList();
     }
 }

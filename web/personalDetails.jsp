@@ -12,18 +12,17 @@
     </jsp:attribute>
 
     <jsp:body>
+        <div class = "jumbotron">
         <h1>Patient's details</h1>
         <f:view>
-
-            <div class="well">
-                <dl class="dl-horizontal">
-                    <dt>Id</dt>
-                    <dd>${patientController.patient.id}</dd>
-                    <dt>Name</dt>
-                    <dd>${patientController.patient.name}</dd>
-                    <dt>Last Name</dt>
-                    <dd>${patientController.patient.lastname}</dd>
-                </dl>
+            <dl class="dl-horizontal">
+                <dt>Id</dt>
+                <dd>${patientController.patient.id}</dd>
+                <dt>Name</dt>
+                <dd>${patientController.patient.name}</dd>
+                <dt>Last Name</dt>
+                <dd>${patientController.patient.lastname}</dd>
+            </dl>
             </div>
 
         </f:view>

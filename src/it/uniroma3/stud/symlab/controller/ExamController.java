@@ -41,6 +41,7 @@ public class ExamController {
     private Doctor doctor;
     private Long patientId;
     private Long doctorId;
+    private List<Exam> patientExams;
 
     public ExamController() {
     }
@@ -135,12 +136,20 @@ public class ExamController {
         this.exam = exam;
     }
 
-    public List<Exam> getListExamsSample() {
-        Patient patient = this.patientFacade.getAllPatients().get(0);
-        return examFacade.getListExamsByPatient(patient);
-    }
-
     public List<Exam> getListExamsWithNoResults() {
         return examFacade.getListExamsWithNoResults();
+    }
+
+    public String listPatientExams() {
+        this.patientExams = this.examFacade.findAllbyId(patientId);
+        return "insertResultsPatient";
+    }
+
+    public List<Exam> getPatientExams() {
+        return patientExams;
+    }
+
+    public void setPatientExams(List<Exam> patientExams) {
+        this.patientExams = patientExams;
     }
 }

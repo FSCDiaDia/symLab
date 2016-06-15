@@ -22,6 +22,11 @@ public class Result {
     public Result() {
     }
 
+    public Result(float value, Indicator indicator) {
+        this.value = value;
+        this.indicator = indicator;
+    }
+
     public float getValue() {
         return value;
     }

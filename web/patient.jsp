@@ -14,23 +14,21 @@
     <jsp:body>
         <f:view>
             <div class="jumbotron">
+                <h1>Patient's details</h1>
+                <dl class="dl-horizontal">
+                    <dt>Id:</dt>
+                    <dd> ${patientController.patient.id}</dd>
+                    <dt>Name:</dt>
+                    <dd>${patientController.patient.name}</dd>
+                    <dt>LastName:</dt>
+                    <dd>${patientController.patient.lastname}</dd>
+                    <dt>Username:</dt>
+                    <dd>${patientController.patient.username}</dd>
+                    <dt>Password:</dt>
+                    <dd>${patientController.patient.password}</dd>
 
+                </dl>
             </div>
-            <h1>Patient's details</h1>
-            <dl class="dl-horizontal">
-                <dt>Id:</dt>
-                <dd> ${patientController.patient.id}</dd>
-                <dt>Name:</dt>
-                <dd>${patientController.patient.name}</dd>
-                <dt>LastName:</dt>
-                <dd>${patientController.patient.lastname}</dd>
-                <dt>Username:</dt>
-                <dd>${patientController.patient.username}</dd>
-                <dt>Password:</dt>
-                <dd>${patientController.patient.password}</dd>
-
-            </dl>
-
         </f:view>
     </jsp:body>
 </t:adminpage>

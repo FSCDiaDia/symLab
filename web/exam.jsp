@@ -23,7 +23,7 @@
             <dt>TypeExam</dt>
             <dd>${examController.exam.typeExam.name}</dd>
             <dt>Price</dt>
-            <dd>${examController.exam.typeExam.price} €</dd>
+            <dd>${examController.exam.typeExam.price} euro</dd>
     </div>
 
     </f:view>

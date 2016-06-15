@@ -32,6 +32,9 @@ public class Exam {
     @OneToMany
     private List<Result> results;
 
+    @Column
+    private Long patientId;
+
     public Exam() {
     }
 
@@ -99,4 +102,11 @@ public class Exam {
         this.results = results;
     }
 
+    public Long getPatientId() {
+        return this.patient.getId();
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
 }

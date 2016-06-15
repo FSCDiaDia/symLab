@@ -15,6 +15,7 @@
         <f:view>
             <div class="jumbotron">
                 <h1>Exams' history</h1>
+                <img src="http://www.imaketheserules.com/wp-content/uploads/2013/07/workInProgress.jpg">
             </div>
         </f:view>
     </jsp:body>

@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -60,6 +61,19 @@ public class PatientFacade {
             return entityManager.createQuery(c).getSingleResult();
         } catch (NoResultException e) {
             return null;
+        }
+    }
+
+    public Long getIdByName(String name) {
+        Query query = entityManager.createQuery("SELECT OBJECT(p) FROM Patient AS p WHERE p.name=?1");
+        query.setParameter(1, name);
+
+        List<Patient> patients = query.getResultList();
+        if (patients.isEmpty()) {
+            return null;
+        } else {
+            Patient p = patients.get(0);
+            return p.getId();
         }
     }
 }
